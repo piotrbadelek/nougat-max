@@ -10,7 +10,7 @@ class ball {
     let join = args.join(" ");
     if(join.includes("zabijsiędb")) i = 7;
     if(join.includes("mongodb") || join.includes("mangodb")) i = 8;
-    let embed = new Discord.MessageEmbed()
+    let embed = new Discord.RichEmbed()
       .setColor(0x198c41)
       .setTitle(`:8ball: ${args.join(" ")}`)
       .setDescription(odpowiedzi[i]);

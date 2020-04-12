@@ -1,4 +1,3 @@
-//handler by liskqu
 const fs = require("fs");
 const AsciiTable = require('ascii-table');
 class handler {
@@ -18,7 +17,7 @@ class handler {
         files.filter(f => fs.statSync(folder + f).isDirectory())
             .forEach(nested => fs.readdirSync(folder + nested).forEach(f => files.push(nested + '/' + f)));
         const jsFiles = files.filter(f => f.endsWith('.js'));
-        console.log(`Znaleziono ${jsFiles.length} komend do zniszczenia!`);
+        console.log(`Znaleziono ${jsFiles.length} komend do załadowania!`);
 
         this.table = new AsciiTable('');
         this.table.setHeading('Komenda','Status');
