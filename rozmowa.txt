@@ -1,0 +1,3 @@
+no witam
+zaraz wracam
+bot jest w bot.js
