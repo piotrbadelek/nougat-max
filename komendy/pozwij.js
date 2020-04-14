@@ -65,7 +65,7 @@ class pozwij {
                       .setDescription("Otrzymałeś pozew! 😮\nPozew od użytkownika <@" + msg.author.id + "> za " + powodpozwania);
                     client.users.get(idpozwanego).send(mybed) // same wysyłanie dma do pozwanego, jak potrzeba to zmienić na embeda czy cokolwiek
                 } else if(m.content.toLowerCase().includes("nie")) {
-                    msg.channel.send("🎉 Anuluję pozew!")
+                    msg.channel.send("🎉 Anuluję pozewpozywanie!")
                     collector.stop()
                 }
             }
