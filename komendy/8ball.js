@@ -6,7 +6,7 @@ class ball {
   }
   async run (client, msg, args) {
     let odpowiedzi = ['Raczej nie!', 'Oczywiście!', 'Ty no nie wiem', 'eee papryka', 'Xiaomi lepsze', 'Jak najbardziej', 'Hehe nie', 'Uno Reverse Card', 'ZabijSięDB jest zajebiste', "ZABIĆ MONGODB"];
-    let i = Math.floor(Math.random() * odpowiedzi.length-2);
+    let i = Math.floor(Math.random() * 7);
     let join = args.join(" ");
     if(join.includes("zabijsiędb")) i = 8;
     if(join.includes("mongodb") || join.includes("mangodb")) i = 9;
