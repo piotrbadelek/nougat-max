@@ -34,7 +34,9 @@ class wyscigpociagow {
             }
         }
         if(m.content == "*wyscigistart") {
-            if(wystartowalo == true) {
+            if(gracze.length < 2) {
+              return msg.channel.send("Aby rozpocząć rozgrywkę, potrzeba 2 graczy!");
+            } else if(wystartowalo == true) {
 
             } else {
                 let wykolejeni = []
