@@ -1,13 +1,8 @@
-let wygraneplik = "./wygrane.txt"
-
 const Discord = require("discord.js")
-const zabijsie = require("../zabij-sie-db.js")
-
-
-class wyscigpociagow {
+class wyscigpociagoweasy {
   constructor(){
-    this.name = "wyscigpociagow"
-    this.alias = ["wyscig"]
+    this.name = "wyscigpociagow-easy"
+    this.alias = ["wyscig-easy"]
   }
   async run (client, msg, args) {
     let gracze = []
@@ -15,10 +10,10 @@ class wyscigpociagow {
     let wystartowalo = false
     let otwarte = true
     let a = gracze.push(msg.author.tag)
-    msg.channel.send(msg.author.tag + " rozpoczyna grę! Czekamy na minimum 2 graczy, kto chce może dołączyć komendą `*wyscigidolacz`.")
+    msg.channel.send(msg.author.tag + " rozpoczyna grę! Czekamy na minimum 2 graczy, kto chce może dołączyć komendą `*wyscigi-easy-dolacz`.")
     let collector = msg.channel.createMessageCollector(m => m)
     collector.on('collect', m => {
-        if(m.content == "*wyscigidolacz") {
+        if(m.content == "*wyscigi-easy-dolacz") {
             if(otwarte == false) {
                 msg.channel.send(m.author.username + ", nie można już dołączać! Poczekaj na następną grę!")
             } else {
@@ -27,16 +22,13 @@ class wyscigpociagow {
                 } else {
                     let a = gracze.push(m.author.tag)
                     if(gracze.length >= 2) {
-                        msg.channel.send("Mamy "+gracze.length+" graczy i możemy zaczynać grę! "+msg.author.tag+" może w każdej chwili wpisać `*wyscigistart` żeby zacząć wyścig.")
+                        msg.channel.send("Mamy "+gracze.length+" graczy i możemy zaczynać grę! "+msg.author.tag+" może w każdej chwili wpisać `*wyscigi-easy-start` żeby zacząć wyścig.")
                     }
 
                 }
             }
         }
-        if(m.content == "*wyscigistart") {
-            if(gracze.length < 2) {
-              return msg.channel.send("Aby rozpocząć rozgrywkę, potrzebujemy 2 graczy!s")
-            }
+        if(m.content == "*wyscigi-easy-start") {
             if(wystartowalo == true) {
 
             } else {
@@ -50,14 +42,11 @@ class wyscigpociagow {
                     otwarte = false
                     let mapa = ""
                     let makspol = 9
-                    let pole = "<:tory:699295080657322085>+"
+                    let pole = ":white_large_square:+"
                     let pociagi = []
                     gracze.forEach(function(gracz) {
                         let pociagimozliwe = [":bullettrain_front:", ":bullettrain_side:", ":train:", ":train2:", ":tram:", "<:wagontowarowy:699222584918671361>", "<:SFNC:699222584918671361>"]
-                        let pociag = pociagimozliwe[Math.floor(Math.random() * pociagimozliwe.length) + 1]
-                        if(pociag == undefined || pociag == "") {
-                            pociag = "<:SFNC:699222584918671361>"
-                        }
+                        let pociag = pociagimozliwe[Math.floor(Math.random() * pociagimozliwe.length)]
                         let c = pociagi.push(pociag + ";" + gracz + ";0")
                     })
                     pociagi.forEach(function(pociagiitp) {
@@ -74,7 +63,7 @@ class wyscigpociagow {
                             mapa = ""
                             let ind = 0
                             pociagi.forEach(function(poc) {
-                                if(Math.floor(Math.random() * 100) <= 5) {
+                                if(Math.floor(Math.random() * 100) <= 1) {
                                     if(pociagwykoleil[ind] == false) {
                                         pociagwykoleil[ind] = true // wykoleił się
 
@@ -89,7 +78,7 @@ class wyscigpociagow {
                                         }
                                     }
                                 }
-                                if(Math.floor(Math.random() * 100) <= 80) {
+                                if(Math.floor(Math.random() * 100) <= 90) {
                                     if(pociagwykoleil[ind] == false) {
                                         pociagi[ind] = poc.split(";")[0] + ";" + poc.split(";")[1] + ";" + (parseInt(poc.split(";")[2]) + 1)
                                     }
@@ -115,28 +104,7 @@ class wyscigpociagow {
                             })
                             let odpowiedzi = ["Paliwo się skończyło", "Powerbank wybychł", "Pociąg zapadł w depresję", "Pociąg został rakietą kosmiczną", "PGE wyłączyło ci prąd bo rachunków nie zapłaciłeś", "TheTroll zjadł koła pociągu", "pzpl zjadł ci pociąg", "liseu zjadł wagony", "Pieseł zjadł silnik"];
                             if(wygrywaja.length == 0) {} else if(wygrywaja.length == 1) {
-
-                              // sprawdzamy czy użytkownik ma wygrane już
-                              let wygrane = zabijsie.readTableZSDB(wygraneplik)
-                              let liczba = 1
-                              if(wygrane.includes(wygrywaja[0]) == false) {
-                                zabijsie.addToTableZSDB(wygraneplik, wygrywaja[0] + "|1;")
-                              } else {
-                                // sprawdzamy ile ma wygranych
-                                wygrane.split(";").forEach(function(wygranyy) {
-                                    if(wygranyy.split("|")[0] == wygrywaja[0]) {
-                                        liczba = parseInt(wygranyy.split("|")[1]) + 1
-                                    }
-                                })
-                                zabijsie.addToTableZSDB(wygraneplik, wygrywaja[0] + "|" + liczba + ";")
-                              }
-                              let embed = new Discord.RichEmbed()
-                              .setColor((Math.random() * 0xFFFFFF << 0).toString(16))
-                              .setAuthor(msg.author.username + "#" + msg.author.discriminator, msg.author.displayAvatarURL)
-                              .setDescription("Gratulujemy! 👏\n" + wygrywaja[0] + " wygrał wyścig! 🎉")
-                              .setFooter("Użytkownik ma już " + liczba + " wygranych. | Polskie Linie Kolejowe | Wygrano 25 NLN")
-                              .setTimestamp();
-                              msg.channel.send(embed);
+                                msg.channel.send("KONIEC! Gratulujemy " + wygrywaja[0] + " za wygranie wyścigu!")
                                 clearInterval(x)
                                 collector.stop()
                                 gracze.forEach(function(graczz) {
@@ -152,30 +120,7 @@ class wyscigpociagow {
                                     }
                                 })
                             } else if(wygrywaja.length > 1) {
-                            let wygrane = ""
-                            wygrywaja.forEach(function(wygranyyy) {
-                                let wygrane = zabijsie.readTableZSDB(wygraneplik)
-                                let liczba = 1
-                                if(wygrane.includes(wygranyyy) == false) {
-                                    zabijsie.addToTableZSDB(wygraneplik, wygranyyy + "|1;")
-                                } else {
-                                    // sprawdzamy ile ma wygranych
-                                    wygrane.split(";").forEach(function(wygranyy) {
-                                        if(wygranyy.split("|")[0] == wygranyyy) {
-                                            liczba = parseInt(wygranyy.split("|")[1]) + 1
-                                        }
-                                    })
-                                    zabijsie.addToTableZSDB(wygraneplik, wygranyyy + "|" + liczba + ";")
-                                    wygrane += wygranyyy + " ma " + liczba + " wygranych. "
-                                }
-                            })
-                              let embed = new Discord.RichEmbed()
-                                .setColor((Math.random() * 0xFFFFFF << 0).toString(16))
-                                .setAuthor(msg.author.username + "#" + msg.author.discriminator, msg.author.displayAvatarURL)
-                                .setDescription("Gratulujemy remisu! 👏\n" + wygrywaja.join(", ") + " wygrywają wyścig! 🎉")
-                                .setFooter(wygrane + " | Polskie Linie Kolejowe")
-                                .setTimestamp();
-                                msg.channel.send(embed);
+                                msg.channel.send("REMIS! Gratulujemy " + wygrywaja.join(", ") + "!")
                                 clearInterval(x)
                                 collector.stop()
                                 gracze.forEach(function(graczz) {
@@ -201,5 +146,4 @@ class wyscigpociagow {
   }
 }
 
-module.exports = wyscigpociagow;
-let  = [":bullettrain_front:", ":bullettrain_side:", ":train:", ":train2:", ":tram:", "<:wagontowarowy:699222584918671361>", "<:SFNC:699272419541516298>"]
+module.exports = wyscigpociagoweasy;
