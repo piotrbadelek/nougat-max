@@ -5,11 +5,49 @@ class help {
     this.alias = ["pomoc", "help"]
   }
   async run (client, msg, args) {
+    // embedy
     let embed = new Discord.RichEmbed()
-      .setColor(0x198c41)
-      .setTitle(`Pomoc`)
-      .setDescription(":8ball: 8ball - *ball, *8ball lub *8pilka \n\n:bullettrain_side: lista pociągów w discordzie - *pociąg \n\n:scales: pozywanie - *pozwij \n\n:sailboat: jak to liseu nazywa: shipowanie - *statki lub *statek \n\n:ballot_box_with_check: Informacje na temat użytkownika - *userinfo @użytkownik \n\n:train2: :tram: Wyścig pociągów - *wyscig\n\n:cake: Pozywanie, tyle że zamiast pozwów jest jedzenie - *zjedz");
+
+    if(!args[0]) {
+      embed.setColor(0x198c41)
+      embed.setTitle(`Pomoc 📚`)
+      embed.setDescription("Komenda \\***pomoc** jest podzielona na kategorię.\nAby zobaczyć wszystkie komendy i ich opisy należy wpisać \\*help <kategoria>\nDostępne kategorie: Rozrywka, Moderacja, Ekonomia, Bot, Muzyka")
+      embed.setFooter("Pomoc")
+      embed.setTimestamp();
+    } else if (args[0].toString().toLowerCase() == "ekonomia") {
+      embed.setColor(0x198c41)
+      embed.setTitle("Pomoc 📚")
+      embed.setDescription("Pomoc/💰Ekonomia\n\n\`*biedronka\` - Wyświetla listę produktów znajdujących się w niej.\n\n\`*kup\` - Kupowanie produktu z biedronki.\nPoprawne użycie: \`*kup <id produktu>\`\n\n\`*money\` - Sprawdza stan konta danego użytkownika\nPoprawne użycie: \`*money <@użytkownik#0000>\`\n\n\`*pay\` - Płacenie innemu użytkownikowi.\nPoprawne użycie: \`*pay <@uzytkownik#0000> <liczba pieniędzy>\`\n\n\`*sprzedaj\` - Komenda dzięki której możesz sprzedać własny produkt w biedronce.\n\n\`*top\` - Ranking 10 użytkowników posiadających najwięcej pieniędzy.")
+      embed.setFooter("Pomoc")
+      embed.setTimestamp();
+    } else if (args[0].toString().toLowerCase() == "rozrywka") {
+      embed.setColor(0x198c41)
+      embed.setTitle("Pomoc 📚")
+      embed.setDescription("Pomoc/☺Rozrywka\n\n\`*8ball\` - Losowo odpowiada na pytanie.\nPoprawne użycie: \`*8ball <pytanie>\`\n\n\`*ciastko\` - Daje ci ciastko.\n\n\`*odwroc\` - Odwraca tekst\nPoprawne użycie: \`*odwroc <tekst>\`\n\n\`*pozwij\` - Pozywa użytkownika do sadu.\n\n\`*sms\` - Wysyła SMS do danej osoby.\n\n\`*statki\` - Shipowanie.\nPoprawne użycie: \`*statki <tekst> <tekst>\`\n\n\`*wybierz\` - Wybiera jedną z dwóch rzeczy\nPoprawnie użycie: \`*wybierz <tekst> <tekst>\`\n\n\`*wyscig\` - Mini gra w której ścigają się pociągi.\n\n\`*zjedz\` - Działa na takiej samej zasadzie co komenda pozwij lecz zamiast pozywania jest jedzenie.")
+      embed.setFooter("Pomoc")
+      embed.setTimestamp();
+    } else if (args[0].toString().toLowerCase() == "moderacja") {
+      embed.setColor(0x198c41)
+      embed.setTitle("Pomoc 📚") 
+      embed.setDescription("Pomoc/🔩Moderacja\n\n\`*ban\` - Blokuje daną osobę na serwerze.\nPoprawne użycie:\`*ban <@uzytkownik#0000> <powod>\`\n\n\`*kick\` - Wyrzuca daną osobę z serwera.\nPoprawne użycie: \`*kick <@uzytkownik#0000> <powod>\`\n\n\`*userinfo\` - Wyświetla informację o użytkowniku.\nPoprawne użycie: \`*userinfo <@uzytkownik#0000>\`\n\n\`warn\` - Ostrzega osobę.\nPoprawne użycie: \`*warn <@uzytkownik#0000> <powod>\`")
+      embed.setFooter("Pomoc")
+      embed.setTimestamp();
+    } else if (args[0].toString().toLowerCase() == "bot") {
+      embed.setColor(0x198c41)
+      embed.setTitle("Pomoc 📚")
+      embed.setDescription("Pomoc/👾Bot\n\n\`*autorzy\` - Autorzy bota, oraz kontakt do nich.\n\n\`*invite\` - Wysyła link do zaproszenia bota na swój serwer.\n\n\`*github\` - Link do rezpozytoria Nougata na Githubie.");
+      embed.setFooter("Pomoc")
+      embed.setTimestamp();
+    } else if (args[0].toString().toLowerCase() == "muzyka") {
+      embed.setColor(0x198c41)
+      embed.setTitle("Pomoc 📚")
+      embed.setDescription("Pomoc/🎶Muzyka\n\n\`*play\` - Dodaje piosenkę z podanego linku do kolejki.\nPoprawne użycie: \`*play <URL>\`\n\n\`*stop\` - Bot wychodzi z kanału głosowego");
+      embed.setFooter("Pomoc")
+      embed.setTimestamp();
+    }
+
+    // wysyłka pocztą polską
     msg.channel.send(embed);
   }
-}
+} // co bo nie widzialem
 module.exports = help;
