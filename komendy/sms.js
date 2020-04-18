@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 class help {
   constructor(){
-    this.name = "SMS Orange",
+    this.name = "sms",
     this.alias = ["SMS", "orange"]
   }
   async run (client, msg, args) {
