@@ -6,9 +6,9 @@ class openlink {
   }
   async run (client, msg, args) {
     let embed = new Discord.RichEmbed()
-      .setAuthor("NougatReboot", "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png")
+      .setAuthor("Nougat", "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png")
       .setColor(0x198c41)
-      .setTitle(`NougatReboot jest open source!`)
+      .setTitle(`Nougat jest open source!`)
       .setDescription("No bo większość botów nie jest i pizza zapomniał o orginalnym nougacie")
       .addField("Link do **G**ithuba", "https://github.com/ProgramistaZpolski/nougat-max");
     msg.channel.send(embed);

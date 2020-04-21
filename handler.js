@@ -39,6 +39,7 @@ class handler {
         console.log(this.table.toString());
         this.cmds = cmds;
         this.aliases = aliases;
+        console.log(`Proszę czekać, łączenie`);
     }
 
     get(string){

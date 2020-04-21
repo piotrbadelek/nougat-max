@@ -25,7 +25,7 @@ class evall {
         let blokada = randomString(16, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
         console.log(blokada);
         const ans = await askQuestion("Podaj kod z konsoli:");
-        if (ans == blokada || ans == "kod z konsoli") {
+        if (ans == blokada) {
             let komenda = msg.content.split(" ")
             let b = komenda.shift()
             komenda = komenda.join(" ")
@@ -45,6 +45,9 @@ class evall {
                     }
                 }
             }
+        }
+        else {
+            msg.channel.send("Nie udało się zweryfikować autentyczności kodu");
         }
     }
 }

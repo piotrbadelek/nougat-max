@@ -32,16 +32,15 @@ class hajstop {
         })
     })
     uzytkownicy = uzytkownicy.slice(0,10)
-    let embed = new Discord.RichEmbed() //pirat no z tym arr   thepirateerrorsguy65
-    .setColor((Math.random() * 0xFFFFFF << 0).toString(16)) // torrentujemy od 2015TM
+    let embed = new Discord.RichEmbed()
+    .setColor((Math.random() * 0xFFFFFF << 0).toString(16)) 
     .setAuthor(client.user.username + "#" + client.user.discriminator, client.user.displayAvatarURL)
     .setFooter("Ekonomia")
     .setTimestamp()
-    .setTitle("Topka najbogatszych osób");                  // torrent już od 7zł miesięcznie.       wracam za pol godziny
+    .setTitle("Topka najbogatszych osób");              
     uzytkownicy.forEach(function(uzyt) {        
-        // w NLN to będzie 75 natomiast w RUR-ach-PCV 185
-        embed.addField(uzyt.split("-")[2], uzyt.split("-")[1] + " " + waluta) // Dostępne lokalizacje serwerów: Frankfurt, Antarktyda, Miodary   ale serio jest vpn na antarktyde
-    }) //nein działa
+        embed.addField(uzyt.split("-")[2], uzyt.split("-")[1] + " " + waluta)
+    })
     msg.channel.send(embed)
   }
 }

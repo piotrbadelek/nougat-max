@@ -37,7 +37,7 @@ class sprzedaj {
                         msg.author.send("Ile to ma kosztować? :thinking: (tylko weś nie przesadzaj XD)")
                     }
                     if (etap == 2) {
-                        productCena = m.content.replace(/[^0-9]/g,""); // tylko liczby, w razie gdyby ktoś napisał "100 NLN"   ej zobacz te let idprodukt nie wiem jak skrócić id bo kopiowałem ze stackoverflow
+                        productCena = m.content.replace(/[^0-9]/g,"");
                         podalcene = true;
                         msg.author.send("Dobra! A teraz co dokładnie chcesz sprzedać? Może to być tekst lub link (może prowadzić do obrazka)")
                     }
@@ -71,7 +71,6 @@ class sprzedaj {
                 
             }); 
         })
-    // spróbujmy createmessagecollector, ten sam blad tylko ze zamiast createcollector, createmessagecollector //dalej errory może w dkomunetacja spojrzec
         
     }
 }
