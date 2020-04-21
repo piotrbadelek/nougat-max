@@ -9,6 +9,7 @@ class ball {
     let i = Math.floor(Math.random() * 8);
     let join = args.join(" ");
     if(join.includes("zabijsiędb")) i = 8;
+    if(join.includes("maks")) i = 1;
     if(join.includes("mongodb") || join.includes("mangodb")) i = 9;
     let embed = new Discord.RichEmbed()
       .setColor(0x198c41)

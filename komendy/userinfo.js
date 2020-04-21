@@ -7,7 +7,7 @@ class userinfo {
   async run (client, msg, args) {
 
     var user = msg.mentions.users.first();
-    if(user = "" || user == null || user == undefined) { //dalej wywala blad na tej linijce
+    if(user = "" || user == null || user == undefined) {
       var user = msg.author;
       var member = msg.member;
     } else {
@@ -53,8 +53,3 @@ class userinfo {
 }
 
 module.exports = userinfo;
-
-// przeporuje zabijsięDB handler na js, ok
-
-//wracam za 15 minut bo musze na koniec mszy pójść
-// jeste

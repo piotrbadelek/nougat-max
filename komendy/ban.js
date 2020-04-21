@@ -8,7 +8,7 @@ class ban {
         const user = msg.mentions.users.first(); // returns the user object if an user mention exists
         const reason = args.slice(1).join(' '); // Reason of the ban (Everything behind the mention)
 
-        if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send("A chce pan gazem pieprzowym?");
+        if (!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send("A chce pan gazem pieprzowym?");
 
         // Check if an user mention exists in this msg
         if (!user) {
@@ -27,11 +27,11 @@ class ban {
         if (!msg.guild.member(user).bannable) return msg.reply('A co chce pan zbanować? Właściciela? (ERROR: Użytkownik ma wyszszą rangę niż ty)');
         if (msg.author.roles.find(role => role.name === 'Admin')) return msg.reply('A co chce pan zbanować? Właściciela? (ERROR: Użytkownik ma wyszszą rangę niż ty)'); // Check if the user is bannable with the bot's permissions
         if (args)
-        await msg.guild.ban(user) // Bans the user
+            await msg.guild.ban(user) // Bans the user
 
         const banConfirmationEmbed = new Discord.RichEmbed()
             .setColor('RED')
-            .setDescription(`✅ ${user.tag} has been successfully banned!`);
+            .setDescription(`✅ ${user.tag} został zbanowany`);
         msg.channel.send({
             embed: banConfirmationEmbed
         }); // Sends a confirmation embed that the user has been successfully banned
@@ -42,13 +42,13 @@ class ban {
             if (!client.channels.get(modlogChannelID)) return undefined; // Check if the modlogChannelID is a real Discord server channel that really exists
 
             const banConfirmationEmbedModlog = new Discord.RichEmbed()
-                .setAuthor(`Banned by **${msg.author.username}#${msg.author.discriminator}**`, msg.author.displayAvatarURL)
+                .setAuthor(`Zbanowany przez **${msg.author.username}#${msg.author.discriminator}**`, msg.author.displayAvatarURL)
                 .setThumbnail(user.displayAvatarURL)
                 .setColor('RED')
                 .setTimestamp()
-                .setDescription(`**Action**: Ban
-**User**: ${user.username}#${user.discriminator} (${user.id})
-**Reason**: ${reason}`);
+                .setDescription(`**Akcja**: Ban
+**Użytkownik**: ${user.username}#${user.discriminator} (${user.id})
+**Powód**: ${reason}`);
             client.channels.get(modlogChannelID).send({
                 embed: banConfirmationEmbedModlog
             }); // Sends the RichEmbed in the modlogchannel

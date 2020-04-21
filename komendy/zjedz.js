@@ -58,7 +58,7 @@ class pozwij {
                     collector.stop()
                     client.users.get(idpozwanego).send("Użytkownik " + msg.author.tag + " zjada Cię!\n\nPowód: " + powodpozwania) // same wysyłanie dma do pozwanego, jak potrzeba to zmienić na embeda czy cokolwiek
                 } else if(m.content.toLowerCase().includes("nie")) {
-                    msg.channel.send("Anuluję zjadanie!") // żebym ja cie zaraz nie zjadł
+                    msg.channel.send("Anuluję zjadanie!")
                     collector.stop()
                 }
             }

@@ -1,4 +1,4 @@
-const Discord = require("discord.js") // npm i ytdl-core node-opus ffmpeg-static
+const Discord = require("discord.js") 
 const ytdl = require("ytdl-core");
 class plej {
   constructor(){
@@ -44,7 +44,7 @@ class plej {
 
         let embed = new Discord.RichEmbed()
         .setColor("#4287f5")
-        .setDescription("Dodano do kolejki: **" + info.title + "** [\[link]\](" + info.video_url + ")") // ZOSTAW TEEEEE EMBEDYYYYYYYYY k
+        .setDescription("Dodano do kolejki: **" + info.title + "** [\[link]\](" + info.video_url + ")") 
         .setFooter("Dodane przez: "+msg.author.username + "#" + msg.author.discriminator, msg.author.displayAvatarURL)
         .setTimestamp();
         msg.channel.send(embed);        

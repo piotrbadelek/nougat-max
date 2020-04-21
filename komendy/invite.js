@@ -5,7 +5,12 @@ class invite {
     this.alias = ["invite"]
   }
   async run (client, msg, args) {
-    msg.channel.send("https://discordapp.com/oauth2/authorize?client_id=" + client.user.id + "&scope=bot&permissions=8");
+    let invitelink = "https://discordapp.com/oauth2/authorize?client_id=698613249616117881&scope=bot&permissions=8";
+    let embed = new Discord.RichEmbed()
+      .setColor(0x198c41)
+      .setTitle(`Dodaj Nougata na swój serwer! :D`)
+      .setDescription(":link: [Kliknij aby dodać!](https://discordapp.com/oauth2/authorize?client_id=698613249616117881&scope=bot&permissions=8)");
+    msg.channel.send(embed);
   }
 }
 module.exports = invite;
