@@ -37,19 +37,21 @@ module.exports = {
     return "Zedytowano tabelę";
   },
   findInTableZSDB: function(table, whatToFind) {
-    fs.readFile(table, {encoding: 'utf-8'}, function(err, data) {
-    if (err) throw error;
+    fs.readFile(table, {encoding: 'utf-8'}, function(err, whatToFind) {
+      console.log(data)
+      let dataArray = data.toString().split('\n');
+      const searchKeyword = whatToFind;
+      let lastIndex = -1;
 
-    let dataArray = data.split('\n');
-    const searchKeyword = whatToFind;
-    let lastIndex = -1;
-
-    for (let index=0; index<dataArray.length; index++) {
-        if (dataArray[index].includes(searchKeyword)) {
-            lastIndex = index;
-            break;
-        }
-    });
-    return lastIndex;
+      for (let index=0; index<dataArray.length; index++) {
+          if (dataArray[index].includes(searchKeyword)) {
+              lastIndex = index;
+              break;
+          }
+      };
+      return lastIndex;
+    })
+    // czy cokolwiek w tym kodzie może działać
+    
   }
 };
