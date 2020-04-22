@@ -11,7 +11,7 @@ class help {
     if(!args[0]) {
       embed.setColor(0x198c41)
       embed.setTitle(`Pomoc 📚`)
-      embed.setDescription("WAŻNE\nAktualnie trwa konkurs na avatar, należy go podesłać na serwer@programistazpolski.ct8.pl.\nWszystkie prace mozna oceniać na kanale prace na naszym [Discordzie](https://discord.gg/HP3ZADA)\nNagroda: 5000 NLN\n\nKomenda \\***pomoc** jest podzielona na kategorię.\nAby zobaczyć wszystkie komendy i ich opisy należy wpisać \\*help <kategoria>\nDostępne kategorie: Rozrywka, Moderacja, Ekonomia, Bot, Muzyka\n\n:link: [Panel Bota](http://83.7.49.211/)")
+      embed.setDescription("Problemy z botem? Sprawdź status bota: [Link do Freshstatus](https://nougat.freshstatus.io)\nDołącz do naszego [discorda](https://discord.gg/HP3ZADA)\n\nKomenda \\***pomoc** jest podzielona na kategorię.\nAby zobaczyć wszystkie komendy i ich opisy należy wpisać \\*help <kategoria>\nDostępne kategorie: Rozrywka, Moderacja, Ekonomia, Bot, Muzyka\n\n:link: [Panel Bota](http://83.7.49.211/)")
       embed.setFooter("Pomoc")
       embed.setTimestamp();
     } else if (args[0].toString().toLowerCase() == "ekonomia") {
@@ -35,7 +35,7 @@ class help {
     } else if (args[0].toString().toLowerCase() == "bot") {
       embed.setColor(0x198c41)
       embed.setTitle("Pomoc 📚")
-      embed.setDescription("Pomoc/👾Bot\n\n\`*autorzy\` - Autorzy bota, oraz kontakt do nich.\n\n\`*invite\` - Wysyła link do zaproszenia bota na swój serwer.\n\n\`*github\` - Link do rezpozytoria Nougata na Githubie.");
+      embed.setDescription("Pomoc/👾Bot\n\n\`*autorzy\` - Autorzy bota, oraz kontakt do nich.\n\n\`*invite\` - Wysyła link do zaproszenia bota na swój serwer.\n\n\`*github\` - Link do rezpozytoria Nougata na Githubie.\n\n\`*uptime\` - Uptime bota.");
       embed.setFooter("Pomoc")
       embed.setTimestamp();
     } else if (args[0].toString().toLowerCase() == "muzyka") {

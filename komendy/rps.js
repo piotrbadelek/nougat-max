@@ -44,7 +44,7 @@ class rps {
                 return "Remis! 🙏";
             } else {
                 hajsMINUS();
-                return "Przegrałeś! 😨";
+              return "Przegrałeś! 😨";
             }
         }
         function hajs() { 
@@ -60,7 +60,7 @@ class rps {
                 zabijsie.addToTableZSDB("./pieniadze.txt", "\n" + msg.author.id + ";15-" + msg.author.tag)
             }
         }
-        function hajsMINUS() {
+        function hajsMINUS() { //to jest DODAWANIE pieniędzy // no to po ciul to wstawiasz w else
             let cashcashminus = Math.floor((Math.random() * 20) + 10);
             let pieniadze = zabijsie.readTableZSDB("./pieniadze.txt")
             if (pieniadze.includes(msg.author.id)) {
