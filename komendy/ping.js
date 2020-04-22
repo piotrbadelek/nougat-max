@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 class ping {
     constructor() {
         this.name = "ping",
-            this.alias = []
+        this.alias = []
     }
     async run(client, msg, args) {
         var apitime = 0;
