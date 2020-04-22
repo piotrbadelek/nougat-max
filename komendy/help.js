@@ -17,7 +17,7 @@ class help {
     } else if (args[0].toString().toLowerCase() == "ekonomia") {
       embed.setColor(0x198c41)
       embed.setTitle("Pomoc 📚")
-      embed.setDescription("Pomoc/💰Ekonomia\n\n\`*biedronka\` - Wyświetla listę produktów znajdujących się w niej.\n\n\`*daily\` - Codziennne pieniądze.\n\n\`*kup\` - Kupowanie produktu z biedronki.\nPoprawne użycie: \`*kup <id produktu>\`\n\n\`*money\` - Sprawdza stan konta danego użytkownika\nPoprawne użycie: \`*money <@użytkownik#0000>\`\n\n\`*pay\` - Płacenie innemu użytkownikowi.\nPoprawne użycie: \`*pay <@uzytkownik#0000> <liczba pieniędzy>\`\n\n\`*sprzedaj\` - Komenda dzięki której możesz sprzedać własny produkt w biedronce.\n\n\`*top\` - Ranking 10 użytkowników posiadających najwięcej pieniędzy.")
+      embed.setDescription("Pomoc/💰Ekonomia\n\n\`*biedronka\` - Wyświetla listę produktów znajdujących się w niej.\n\n\`*daily\` - Codziennne pieniądze.\n\n\`*kup\` - Kupowanie produktu z biedronki.\nPoprawne użycie: \`*kup <id produktu>\`\n\n\`*lotto\` - Losowanie liczb.\nPoprawne użycie: \`*lotto <liczba1> <liczba2> <liczba3> <liczba4> <liczba5>\`\n\n`*money\` - Sprawdza stan konta danego użytkownika\nPoprawne użycie: \`*money <@użytkownik#0000>\`\n\n\`*pay\` - Płacenie innemu użytkownikowi.\nPoprawne użycie: \`*pay <@uzytkownik#0000> <liczba pieniędzy>\`\n\n\`*sprzedaj\` - Komenda dzięki której możesz sprzedać własny produkt w biedronce.\n\n\`*top\` - Ranking 10 użytkowników posiadających najwięcej pieniędzy.")
       embed.setFooter("Pomoc")
       embed.setTimestamp();
     } else if (args[0].toString().toLowerCase() == "rozrywka") {
