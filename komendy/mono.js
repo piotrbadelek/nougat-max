@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-const monodev = new Discord.Attachment('http://83.7.49.211/api/nougay.png');
+const monodev = new Discord.Attachment('http://83.27.68.88/api/nougay.png');
 class mono {
     constructor() {
         this.name = "monodev",
@@ -10,7 +10,7 @@ class mono {
         const exampleEmbed = {
             title: 'Monodev - **Pobrane z NougatAPI**',
             image: {
-                url: 'http://83.7.49.211/api/mono.png',
+                url: 'http://83.27.68.88/api/mono.png',
             },
             description: 'Monodev'
         };

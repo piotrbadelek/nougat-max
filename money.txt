@@ -1,0 +1,4 @@
+osoba1 - 100 NLN
+osoba2 - 200 NLN
+
+NLN = Niemiecki złoty

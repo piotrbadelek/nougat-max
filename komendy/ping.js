@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 class ping {
     constructor() {
         this.name = "ping",
-        this.alias = []
+            this.alias = []
     }
     async run(client, msg, args) {
         var apitime = 0;
@@ -12,7 +12,7 @@ class ping {
             .setAuthor(client.user.username + "#" + client.user.discriminator, client.user.displayAvatarURL)
             .addField("Latency", Date.now() - msg.createdTimestamp + " ms")
             .addField("API Discord", Math.floor(client.ping) + " ms")
-            .addField("API Nougat", "0.35 ms")
+            .addField("API Nougat", "OFFLINE")
             .setFooter("Opóźnienie NouagatAPI jest odświeżane co 12 godzin")
         m.edit(embed);
     }

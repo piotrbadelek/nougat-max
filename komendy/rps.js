@@ -43,8 +43,7 @@ class rps {
             } else if(user === bot) {
                 return "Remis! 🙏";
             } else {
-                hajsMINUS();
-              return "Przegrałeś! 😨";
+                return "Przegrałeś! 😨";
             }
         }
         function hajs() { 
@@ -70,7 +69,7 @@ class rps {
                 zabijsie.editTableZSDB("./pieniadze.txt", msg.author.id + ";" + nowailosc + "-", msg.author.id + ";" + current + "-") // zmiana ilości
             } else {
                 // użytkownik nie ma jeszcze nic
-                zabijsie.addToTableZSDB("./pieniadze.txt", "\n" + msg.author.id + ";0-" + msg.author.tag)
+                zabijsie.addToTableZSDB("./pieniadze.txt", "\n" + msg.author.id + ";15-" + msg.author.tag)
             }
         }
     }

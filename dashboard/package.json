@@ -1,0 +1,27 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "dashboard do nougata skradziony od pizzy",
+  "main": "main.js",
+  "scripts": {
+    "test": "start"
+  },
+  "keywords": [
+    "skradziony",
+    "pizza",
+    "nougat",
+    "dashboard",
+    "lisqu"
+  ],
+  "author": "lisqu, thetrollerrorsguy65, programistazpolski",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "path": "^0.12.7",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5",
+    "util": "^0.12.2",
+    "xd": "0.0.0"
+  }
+}
