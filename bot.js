@@ -155,6 +155,5 @@ client.on('guildMemberAdd', async member => {
 <<<<<<< Updated upstream
 client.login("haha nie");
 =======
-client.login("Njk4NjEzMjQ5NjE2MTE3ODgx.XqQ2ew.9mn3o4HNXEYyeZjDzAKJgu-gVVo");
 // a i cowsay help poprosze zrobic
 >>>>>>> Stashed changes
