@@ -4,7 +4,7 @@ var dateObj = new Date();
 class workwork {
     constructor() {
         this.name = "praca",
-            this.alias = ["pracowanie"]
+            this.alias = ["pracowanie", "work", "workwork"]
     }
     async run(client, msg, args) {
         function addmoni(moni) {

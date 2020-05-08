@@ -1,11 +1,37 @@
 const Discord = require("discord.js")
-const zabijsie = require("./zabij-sie-db.js");
+const zabijsie = require("../zabij-sie-db.js");
 class lotto {
     constructor(){
         this.name = "lotto",
         this.alias = [];
     }
+    
     async run (client, msg, args) {
+        function dodajhajs(wygrane) {
+            let pieniadze = zabijsie.readTableZSDB("./pieniadze.txt")
+            let current = pieniadze.split(msg.author.id + ";")[1].split("-")[0]
+            if (pieniadze.includes(msg.author.id)) {
+                // użytkownik ma już jakieś pieniądze
+                let current = pieniadze.split(msg.author.id + ";")[1].split("-")[0]
+                let nowailosc = parseInt(current);
+                
+                if (wygrane == 1) 
+                    nowailosc += 15
+                else if (wygrane == 2)
+                    nowailosc += 35
+                else if (wygrane == 3)
+                    nowailosc += 65
+                else if (wygrane == 4)
+                    nowailosc += 200
+                else if (wygrane == 5)
+                    nowailosc += 5000
+        
+                zabijsie.editTableZSDB("./pieniadze.txt", msg.author.id + ";" + nowailosc + "-", msg.author.id + ";" + current + "-") // zmiana ilości
+            } else {
+                // użytkownik nie ma jeszcze nic
+                zabijsie.addToTableZSDB("./pieniadze.txt", "\n" + msg.author.id + ";150-" + msg.author.tag)
+            }
+        }
         let zakres = 100;
         let l = args;
         let bl = [];
@@ -46,31 +72,6 @@ class lotto {
         .addField("Twoje liczby", l.join(", "))
         .setFooter("Ekonomia");
         msg.channel.send(embed);
-    }
-}
-function dodajhajs(wygrane) {
-    let pieniadze = zabijsie.readTableZSDB("./pieniadze.txt")
-    let current = czas.split(msg.author.id + ";")[1].split("-")[0]
-    if (pieniadze.includes(msg.author.id)) {
-        // użytkownik ma już jakieś pieniądze
-        let current = pieniadze.split(msg.author.id + ";")[1].split("-")[0]
-        let nowailosc = parseInt(current);
-        
-        if (wygrane == 1) 
-            nowailosc += 15
-        else if (wygrane == 2)
-            nowailosc += 35
-        else if (wygrane == 3)
-            nowailosc += 65
-        else if (wygrane == 4)
-            nowailosc += 200
-        else if (wygrane == 5)
-            nowailosc += 500
-
-        zabijsie.editTableZSDB("./pieniadze.txt", msg.author.id + ";" + nowailosc + "-", msg.author.id + ";" + current + "-") // zmiana ilości
-    } else {
-        // użytkownik nie ma jeszcze nic
-        zabijsie.addToTableZSDB("./pieniadze.txt", "\n" + msg.author.id + ";150-" + msg.author.tag)
     }
 }
 

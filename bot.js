@@ -72,7 +72,7 @@ client.on("guildCreate", guild => {
   let embedJoin = new Discord.RichEmbed()
       .setColor(0x198c41)
       .setTitle(`Dziękuję za dodane mnie na serwer! :smile: `)
-      .setDescription("Aby zobaczyć listę moich komend, wpisz *help!")
+      .setDescription("Aby zobaczyć listę moich komend, wpisz *help!\nNougat jest hostowany na domowym komputerze, dlatego jest wyłączany w nocy")
       .addField("New Nougat Interactive 2020","Made with :heart: in Greenland");
   let channelID;
   let channels = guild.channels;
@@ -88,4 +88,4 @@ client.on("guildCreate", guild => {
   channel.send(embedJoin);
 });
 
-client.login("kradnij");
+client.login("haha nie");

@@ -37,10 +37,12 @@ class hajs {
       // nie ma mentiona, sprawdzamy swoje
       let balans = pieniadze.split(msg.author.id + ";")[1].split("-")[0]
       balans = balans / 1 //inflancja
+      let balanspln = balans * 5.5
+      balanspln = Math.floor(balanspln)
       let embed = new Discord.RichEmbed()
       .setColor("#32a852")
       .setAuthor(msg.author.username, msg.author.displayAvatarURL)
-      .setDescription(`Posiadasz ${balans} ${waluta} :moneybag: \n NLN = niemiecki złotych \n RUR = Rosyjskie Euro`)
+      .setDescription(`Posiadasz ${balans} ${waluta} :moneybag: \n NLN = niemiecki złotych \n W złotówkach to około ${balanspln}zł!`)
       .setFooter("Ekonomia");
       msg.channel.send(embed)
     }
