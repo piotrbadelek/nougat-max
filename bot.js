@@ -88,4 +88,4 @@ client.on("guildCreate", guild => {
   channel.send(embedJoin);
 });
 
-client.login("Njk4NjEzMjQ5NjE2MTE3ODgx.XqBI1A.B67xGnCR7kwA3b-pH3x9hjJLylE");
+client.login("haha nie");
