@@ -63,7 +63,7 @@ class sprzedaj {
                             let idProdukt = randomString(5, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
                             msg.author.send(`Wystawiasz produkt "${productName}" na sprzedaż!`)
                             let staralista = zabijsie.readTableZSDB(plik)
-                            zabijsie.rewriteTableZSDB(plik, productName + "|" + productCena + "|" + idProdukt + "|" + productCos + "\n" + staralista)
+                            zabijsie.rewriteTableZSDB(plik, productName + "|" + idProdukt + "|" + productCena + "|" + productCos + "|\n" + staralista)
                         }
                         
                     }

@@ -13,6 +13,7 @@ class autorzy {
       .addField("TheTrollErrorsGuy65#5566", "https://github.com/TheTrollErrorsGuy65")
       .addField("󠇰󠇰󠇰󠇰󠇰󠇰ProgramistaZpolski#9847", "https://github.com/ProgramistaZpolski")
       .addField("Feedback:", "serwer@programistazpolski.ct8.pl")
+      console.log("autorzy");
     msg.channel.send(embed);
   }
 }

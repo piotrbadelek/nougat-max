@@ -8,13 +8,20 @@ class zakup {
   } 
   async run (client, msg, args) { 
     let iddokupienia = msg.content.split(" ")[1]; 
+    console.log(iddokupienia)
     let biedronka = zabijsie.readTableZSDB("./biedronka.txt"); 
-    let cash_money = zabijsie.readTableZSDB("./pieniadze.txt"); 
-    if(cash_money.includes(msg.author.id)) { 
+    let cashmoney = zabijsie.readTableZSDB("./pieniadze.txt"); 
+    if(cashmoney.includes(msg.author.id)) { 
       // kupujący jest zapisany do bazy
-      let pieniadze = parseInt(cash_money.split(msg.author.id)[1].split("-")[0]);
+      let pieniadze = parseInt(cashmoney.split(msg.author.id + ";")[1].split("-")[0]);
+      console.log(pieniadze);
       let a = biedronka.split(iddokupienia)[0].split("|")
-      let dozaplaty = parseInt(a[a.length - 1]);
+      let produkt = biedronka.split(iddokupienia)[1].split("|")
+      produkt = produkt[1]
+      console.log(a);
+      console.log(produkt)
+      let dozaplaty = parseInt(produkt);
+      console.log(dozaplaty)
       if((pieniadze - dozaplaty) < 0) {
         let embed = new Discord.RichEmbed()
         .setColor(0x194c41)
@@ -24,8 +31,13 @@ class zakup {
         msg.channel.send(embed)
 
       } else {
-        pieniadze = pieniadze - dozaplaty;
-        zabijsie.editTableZSDB("./biedronka.txt", msg.author.id + ";" + (pieniadze - dozaplaty), msg.author.id + ";" + pieniadze)
+        pieniadze = pieniadze - dozaplaty
+        let smieci = pieniadze.toString()
+        let pierwotnesmieci = pieniadze + dozaplaty;
+        pierwotnesmieci = pierwotnesmieci.toString();
+        console.log(pieniadze)
+        zabijsie.editTableZSDB("./pieniadze.txt", msg.author.id + ";" + smieci, msg.author.id + ";" + pierwotnesmieci)
+        console.log(pieniadze)
         let embed = new Discord.RichEmbed()
         .setColor(0x194c41)
         .setAuthor(client.user.username + "#" + client.user.discriminator, client.user.displayAvatarURL)
@@ -33,7 +45,7 @@ class zakup {
         .setFooter("Biedronka");
         msg.channel.send(embed) // ktoś dodał r do bot.js takie samotne r ;c ; halohalohalohaloD
         let produkt = biedronka.split(iddokupienia)[1].split("|")
-        msg.author.send("Zakupiłeś produkt z Biedronki! Oto on:\n" + produkt[1].split("\n")[0])
+        msg.author.send("Zakupiłeś produkt z Biedronki! Oto on:\n" + produkt[2].split("\n")[0])
       }
       
     }

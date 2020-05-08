@@ -1,0 +1,10 @@
+
+--Liseu#3216BEGIN--
+deny <id propozycji> <powód>
+ --Liseu#3216END--
+--󠇰󠇰󠇰󠇰 󠇰󠇰󠇰󠇰ProgramistaZpolski#9847 BEGIN--
+propozycje na kanał w nougacie
+ --󠇰󠇰󠇰󠇰 󠇰󠇰󠇰󠇰ProgramistaZpolski#9847 END--
+--󠇰󠇰󠇰󠇰 󠇰󠇰󠇰󠇰ProgramistaZpolski#9847 BEGIN--
+propozycje na kanał w nougacie
+ --󠇰󠇰󠇰󠇰 󠇰󠇰󠇰󠇰ProgramistaZpolski#9847 END--

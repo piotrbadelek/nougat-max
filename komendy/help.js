@@ -23,7 +23,7 @@ class help {
     } else if (args[0].toString().toLowerCase() == "rozrywka") {
       embed.setColor(0x198c41)
       embed.setTitle("Pomoc 📚")
-      embed.setDescription("Pomoc/☺Rozrywka\n\n\`*8ball\` - Losowo odpowiada na pytanie.\nPoprawne użycie: \`*8ball <pytanie>\`\n\n`*ciastko\` - Daje ci ciastko.\n\n\`*odwroc\` - Odwraca tekst\nPoprawne użycie: \`*odwroc <tekst>\`\n\n\`*pozwij\` - Pozywa użytkownika do sadu.\n\n\`*rps\` - Kamień Papier Nożyce.\nPoprawne użycie: \`*rps <1 - Nożyce, 2 - Papier, 3 - Kamień>\`\n\n`*sms\` - Wysyła SMS do danej osoby.\n\n\`*statki\` - Shipowanie.\nPoprawne użycie: \`*statki <tekst> <tekst>\`\n\n\`*wybierz\` - Wybiera jedną z dwóch rzeczy\nPoprawnie użycie: \`*wybierz <tekst> <tekst>\`\n\n\`*wyscig\` - Mini gra w której ścigają się pociągi.\n\n\`*zjedz\` - Działa na takiej samej zasadzie co komenda pozwij lecz zamiast pozywania jest jedzenie.")
+      embed.setDescription("Pomoc/☺Rozrywka\n\n\`*8ball\` - Losowo odpowiada na pytanie.\nPoprawne użycie: \`*8ball <pytanie>\`\n\n`*ciastko\` - Daje ci ciastko.\n\n\`*cowsay\` - Krowa coś mówi.\nPoprawne użycie: \`*cowsay <tekst>\`\n\n\`*odwroc\` - Odwraca tekst\nPoprawne użycie: \`*odwroc <tekst>\`\n\n\`*pozwij\` - Pozywa użytkownika do sadu.\n\n\`*rps\` - Kamień Papier Nożyce.\nPoprawne użycie: \`*rps <1 - Nożyce, 2 - Papier, 3 - Kamień>\`\n\n`*say\` - Bot mówi coś za ciebie\nPoprawne użycie: \`*say <tekst do powiedzenia>\`\n\n`*sms\` - Wysyła SMS do danej osoby.\n\n\`*statki\` - Shipowanie.\nPoprawne użycie: \`*statki <tekst> <tekst>\`\n\n\`*wybierz\` - Wybiera jedną z dwóch rzeczy\nPoprawnie użycie: \`*wybierz <tekst> <tekst>\`\n\n\`*wyscig\` - Mini gra w której ścigają się pociągi.\n\n\`*zjedz\` - Działa na takiej samej zasadzie co komenda pozwij lecz zamiast pozywania jest jedzenie.")
       embed.setFooter("Pomoc")
       embed.setTimestamp();
     } else if (args[0].toString().toLowerCase() == "moderacja") {
@@ -42,6 +42,12 @@ class help {
       embed.setColor(0x198c41)
       embed.setTitle("Pomoc 📚")
       embed.setDescription("Pomoc/🎶Muzyka\n\n\`*play\` - Dodaje piosenkę z podanego linku do kolejki.\nPoprawne użycie: \`*play <URL>\`\n\n\`*stop\` - Bot wychodzi z kanału głosowego");
+      embed.setFooter("Pomoc")
+      embed.setTimestamp();
+    } else {
+      embed.setColor(0x198c41)
+      embed.setTitle("Pomoc 📚")
+      embed.setDescription("Taka kategoria nie istnieje!");
       embed.setFooter("Pomoc")
       embed.setTimestamp();
     }

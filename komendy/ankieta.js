@@ -6,6 +6,7 @@ class ankieta {
         this.alias = []
     }
     async run (client, msg, args) {
+        console.log("ankieta");
         let tresc = args.join(" ");
         let glosy = []
         const embed = new Discord.RichEmbed()

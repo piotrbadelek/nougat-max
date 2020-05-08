@@ -1,0 +1,23 @@
+            .-/+oossssoo+/-.               piotr@piotr-MS-7B24 
+        `:+ssssssssssssssssss+:`           ------------------- 
+      -+ssssssssssssssssssyyssss+-         OS: Ubuntu 19.10 x86_64 
+    .ossssssssssssssssssdMMMNysssso.       Host: MS-7B24 2.0 
+   /ssssssssssshdmmNNmmyNMMMMhssssss/      Kernel: 5.3.0-51-generic 
+  +ssssssssshmydMMMMMMMNddddyssssssss+     Uptime: 35 mins 
+ /sssssssshNMMMyhhyyyyhmNMMMNhssssssss/    Packages: 2482 (dpkg), 11 (snap) 
+.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Shell: bash 5.0.3 
++sssshhhyNMMNyssssssssssssyNMMMysssssss+   Resolution: 1920x1080, 1280x1024 
+ossyNMMMNyMMhsssssssssssssshmmmhssssssso   DE: GNOME 3.34.3 
+ossyNMMMNyMMhsssssssssssssshmmmhssssssso   WM: GNOME Shell 
++sssshhhyNMMNyssssssssssssyNMMMysssssss+   WM Theme: Adwaita 
+.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Theme: Yaru [GTK2/3] 
+ /sssssssshNMMMyhhyyyyhdNMMMNhssssssss/    Icons: Yaru [GTK2/3] 
+  +sssssssssdmydMMMMMMMMddddyssssssss+     Terminal: gnome-terminal 
+   /ssssssssssshdmNNNNmyNMMMMhssssss/      CPU: Intel i5-8400 (6) @ 4.000GHz 
+    .ossssssssssssssssssdMMMNysssso.       GPU: AMD ATI Radeon RX 470/480/570/5 
+      -+sssssssssssssssssyyyssss+-         Memory: 4364MiB / 15955MiB 
+        `:+ssssssssssssssssss+:`
+            .-/+oossssoo+/-.                                       
+
+
+

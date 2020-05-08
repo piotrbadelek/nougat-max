@@ -30,11 +30,12 @@ class evall {
             let b = komenda.shift()
             komenda = komenda.join(" ")
             if (komenda == "process.exit(1)") {
-                console.log("hehe nie");
+                msg.channel.send("hehe nie");
             }
             else {
                 let id = ["284980083104415746", "347736225873920021", "300346870574612491"]
                 if (id.includes(msg.author.id)) {
+                    msg.channel.send("Zweryfikowano autentyczność kodu");
                     // jeden z dozwolonych w id
                     try {
                         let a = eval(komenda)

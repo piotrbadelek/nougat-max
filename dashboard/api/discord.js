@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const router = express.Router();
 CLIENT_ID = "698613249616117881";
 CLIENT_SECRET = "E7mmR_k6JQgCtkl0GXoX2Z3H_Q7lgHJM"
-redirect = "http://83.7.49.211:1337/api/callback/"
+redirect = "http://83.7.208.27:1337/api/callback/"
 router.get('/login', (req, res) => {
     res.redirect(`https://discordapp.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=` + encodeURIComponent(redirect) + `&response_type=code&scope=identify guilds`);
 }); 

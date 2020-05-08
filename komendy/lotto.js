@@ -24,7 +24,7 @@ class lotto {
                 else if (wygrane == 4)
                     nowailosc += 200
                 else if (wygrane == 5)
-                    nowailosc += 5000
+                    nowailosc += 500 // chyba cie cos boli czlowieku   nie chodzi o to że 3 i powyżej sie jeszcze nigdy nie zdarzyly na wygranie 5 jest szansa 1 na milion
         
                 zabijsie.editTableZSDB("./pieniadze.txt", msg.author.id + ";" + nowailosc + "-", msg.author.id + ";" + current + "-") // zmiana ilości
             } else {
@@ -32,7 +32,7 @@ class lotto {
                 zabijsie.addToTableZSDB("./pieniadze.txt", "\n" + msg.author.id + ";150-" + msg.author.tag)
             }
         }
-        let zakres = 100;
+        let zakres = 49;
         let l = args;
         let bl = [];
 

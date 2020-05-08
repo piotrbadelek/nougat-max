@@ -1,10 +1,26 @@
 const Discord = require("discord.js");
 const zabijsie = require("./zabij-sie-db.js");
+const Canvas = require('canvas');
 const client = new Discord.Client({
   disableEveryone: true
 });
+const applyText = (canvas, text) => {
+	const ctx = canvas.getContext('2d');
 
-client.botbans = [];
+	// Declare a base size of the font
+	let fontSize = 90;
+
+	do {
+		// Assign the font to the context and decrement it so it can be measured again
+		ctx.font = `${fontSize -= 10}px ubuntu`;
+		// Compare pixel width of the text to the canvas minus the approximate avatar size
+	} while (ctx.measureText(text).width > canvas.width - 300);
+
+	// Return the result to use in the actual canvas
+	return ctx.font;
+};
+
+client.botbans = require("./botbans.json")
 
 const { handler } = require("./handler.js");
 const prefix = '*';
@@ -18,7 +34,7 @@ const active = new Map();
 // komende eval a.
 client.on('guildCreate', serw => { // kiedyś z tego wyraz wyjdzie, na razie mamy "er"" XD   ja to moge zrobic   ok                               ok                           ok
   console.log("dołączono na: " + serw.name) //e // kto tu dał to "e" XDDD kolejna pamiatka :thumbsup:   ja dalem e
-  client.user.setActivity(`*help | ${client.guilds.size} serwerów! Jadę pociągiem`, { type: "WATCHING" });// evala będzie o wiele łatwiej
+  client.user.setActivity(`*help | ${client.guilds.size} serwerów! Jadę pociągiem | Wersja 1.1 Idiotyczna Peppa`, { type: "WATCHING" });// evala będzie o wiele łatwiej
 })
 
 client.on("ready", () => {
@@ -27,19 +43,29 @@ client.on("ready", () => {
   // dobra teraz musimy sprzedac dane osobowe
   // oh no
   // ok ja mogę sprzedać
-  client.user.setActivity(`*help | ${client.guilds.size} serwerów! Jadę pociągiem`, { type: "WATCHING" });
+  client.user.setActivity(`*help | ${client.guilds.size} serwerów! Jadę pociągiem  | Wersja 1.1 Idiotyczna Peppa | Ubuntu 20.04`, { type: "WATCHING" });
 });
 
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
   if (msg.content.startsWith(prefix) && msg.guild) {
 
-    if (!client.botbans[msg.author.id]) client.botbans[msg.author.id] = {
+    /*if (!client.botbans[msg.author.id]) client.botbans[msg.author.id] = {
       ban: false,
       reason: null
-    }
+    }*/
 
-    if (client.botbans[msg.author.id].ban == "true") return;
+    let bans = zabijsie.readTableZSDB("./botbans.json")
+    try {
+      bans = JSON.parse(bans)
+      for(let i in bans) {
+        if(msg.author.id == i) {
+          return; 
+        }
+      }
+    }
+    catch(err) {console.log(err)}
+
 
     const msgArray = msg.content.split(" ");
     const cmd = msgArray[0];
@@ -87,5 +113,48 @@ client.on("guildCreate", guild => {
   let channel = client.channels.get(guild.systemChannelID || channelID);
   channel.send(embedJoin);
 });
+client.on('guildMemberAdd', async member => {
+	const channel = member.guild.channels.find(ch => ch.name === 'member-log');
+	if (!channel) return;
 
+	const canvas = Canvas.createCanvas(700, 250);
+	const ctx = canvas.getContext('2d');
+
+	const background = await Canvas.loadImage('./bestfucks.jpg');
+	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+	ctx.strokeStyle = '#74037b';
+	ctx.strokeRect(0, 0, canvas.width, canvas.height); // 'CHOC NA GLOSOWY
+ // widze ze tutaj sie dzieje ostre kopiowańsko xd xD
+	// Slightly smaller text placed above the member's display name
+	ctx.font = '28px ubuntu';
+	ctx.fillStyle = '#ffffff';
+  ctx.fillText('Witaj na serwerze,', canvas.width / 2.5, canvas.height / 3.5);
+  ctx.font = '7px ubuntu';
+	ctx.fillStyle = '#ffffff';
+	ctx.fillText('Bot Nougat / New Nougat Interactive', canvas.width / 2.5, canvas.height -25);
+
+	// Add an exclamation point here and below
+	ctx.font = applyText(canvas, `${member.displayName}!`);
+	ctx.fillStyle = '#ffffff';
+	ctx.fillText(`${member.displayName}!`, canvas.width / 2.5, canvas.height / 1.6);
+
+	ctx.beginPath();
+	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
+	ctx.closePath();
+	ctx.clip();
+
+	const avatar = await Canvas.loadImage(member.user.displayAvatarURL);
+	ctx.drawImage(avatar, 25, 25, 200, 200);
+
+	const attachment = new Discord.Attachment(canvas.toBuffer(), 'welcome-image.png');
+
+	channel.send(`Witaj na serwerze, ${member}!`, attachment);
+});
+
+<<<<<<< Updated upstream
 client.login("haha nie");
+=======
+client.login("Njk4NjEzMjQ5NjE2MTE3ODgx.XqQ2ew.9mn3o4HNXEYyeZjDzAKJgu-gVVo");
+// a i cowsay help poprosze zrobic
+>>>>>>> Stashed changes

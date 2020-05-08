@@ -18,8 +18,8 @@ class biedronka {
         // nazwa|cena|produkt
         if((produkt == "") == false) {
           let nazwa = produkt.split("|")[0]
-          let cena = produkt.split("|")[1]
-          let id = produkt.split("|")[2]
+          let cena = produkt.split("|")[2]
+          let id = produkt.split("|")[1]
           embed.addField(nazwa + " (ID: " + id + ")", cena + " " + waluta)
         }        
       })

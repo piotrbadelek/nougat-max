@@ -37,12 +37,12 @@ class workwork {
             }
         } else {
             // użytkownik nie ma jeszcze nic
-            zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
             if (join == 99) {
                 console.log("pracasecret")
                 if (d < 0.05) {
                     msg.channel.send("ma pan to prace")
                     addmoni(7500);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             if (join == 1) {
@@ -50,6 +50,7 @@ class workwork {
                 if (d < 0.05) {
                     msg.channel.send("ma pan to prace")
                     addmoni(2000);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else if (join == 2) {
@@ -57,6 +58,7 @@ class workwork {
                 if (d < 0.08) {
                     msg.channel.send("ma pan to prace")
                     addmoni(1800);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else if (join == 3) {
@@ -64,6 +66,7 @@ class workwork {
                 if (d < 0.1) {
                     msg.channel.send("ma pan to prace")
                     addmoni(1500);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else if (join == 4) {
@@ -71,6 +74,7 @@ class workwork {
                 if (d < 0.15) {
                     msg.channel.send("ma pan to prace")
                     addmoni(1000);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else if (join == 5) {
@@ -78,6 +82,7 @@ class workwork {
                 if (d < 0.25) {
                     msg.channel.send("ma pan to prace")
                     addmoni(900);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else if (join == 6) {
@@ -85,6 +90,7 @@ class workwork {
                 if (d < 0.3) {
                     msg.channel.send("ma pan to prace")
                     addmoni(750);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else if (join == 7) {
@@ -92,6 +98,7 @@ class workwork {
                 if (d < 0.4) {
                     msg.channel.send("ma pan to prace")
                     addmoni(600);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else if (join == 8) {
@@ -99,6 +106,7 @@ class workwork {
                 if (d < 0.6) {
                     msg.channel.send("ma pan to prace")
                     addmoni(500);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else if (join == 9) {
@@ -106,6 +114,7 @@ class workwork {
                 if (d < 0.8) {
                     msg.channel.send("ma pan to prace")
                     addmoni(200);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else {

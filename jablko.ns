@@ -1,0 +1,6 @@
+using Nougat as bot;
+using Nougat.Message as msg;
+command jablko(){
+  var jablko:String = "🍎 ";
+  msg.send("Masz tu jabłko, " + jablko + "!");
+}
