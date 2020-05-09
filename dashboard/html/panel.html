@@ -1,0 +1,53 @@
+<html lang = "pl">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../style.css">
+        <!-- co wy zrobiliście z tym cssem-->
+        <title>Nougat - Panel</title>
+    </head> <!--jak sie podoba navbar-->
+    <body> <!-- czm on nie jest od początku od lewej strony   bo tak go zrobiłem-->
+        <ul>
+            <li><a class="active" href="#home">Serwery</a></li>
+            <li><a href="./settings/">Ustawienia</a></li>
+            <li><a href="./leaderboard/">Leaderboard</a></li>
+            <li><a href = "kontakt.html">Kontakt</a></li>
+            <li style="float:right"><a class="active" href="../api/logout">Wyloguj</a></li> 
+          </ul>
+          <div id="serwer" class="ser" style="display: block;position: absolute;top: 30px;margin-top: 50px;left: 25px;padding: 5px 5px;background-color: rgba(255,255,255,0.3);width: calc(100% - 50px);">
+              <img class="server_avatar" src="../loading.gif" style="border-radius: 50px;width: 128px;height: 128px;margin-left: 5px;margin-top: 5px;" alt = "Trwa wczytywanie..."/><!-- cdn.discordapp.com/icons/idserwera/todziwneid(serwer.avatar).png-->
+              <!-- nie ma tego w jsonie?-->
+              <h1>Ładowanie serwerów, proszę czekać...</h1>
+          </div>
+        <!--<footer id="aaaaaa" style="position: absolute;top: 100%;">ProgramistaZpolski, liskqu, TheTrollErrorsGuy65 (także znani jako Nougat Interactive) © 2020-2020, made in greenland XD<br><img style="margin-top: 5px;" src = "http://www.programistazpolski.ct8.pl/newnougat.png" width="10%"></footer>-->
+    </body>
+</html>
+<script>
+    var toop = 30
+    fetch("../api/serwery") // ok XD
+    .then((response) => { // a sprawdzic czy bot na serwerze jest nie zrobimy bo nie mamy clienta przeeksportowanego nwm jak to powiedziec   i need help with index.html
+        let serwery;
+        response.json().then(function(a) {
+            a.data.forEach(function(serwer) {
+                let el = document.createElement("div")
+                el.innerHTML = document.getElementsByClassName("ser")[0].innerHTML //dziaua
+                if(serwer.icon == null || serwer.icon == undefined) {
+                    el.innerHTML = el.innerHTML.replace('src="../loading.gif"', 'src="https://cdn.discordapp.com/attachments/698906273906819083/700317489577459842/322c936a8c8be1b803cd94861bdfa868.png"')
+                } else {
+                    el.innerHTML = el.innerHTML.replace('src="../loading.gif"', 'src="' + "https://cdn.discordapp.com/icons/" + serwer.id + "/" + serwer.icon + ".png" + '"')
+                }
+                
+                el.innerHTML = el.innerHTML.replace("h1>", "h1>" + serwer.name).replace("Ładowanie serwerów, proszę czekać...</", "</")
+                el.style = "display: block;position: absolute;top: 30px;margin-top: 50px;left: 25px;padding: 5px 5px;background-color: rgba(255,255,255,0.3);width: calc(100% - 50px);"
+                let nazwa = el.innerHTML.split("h1>")[1].split("</")[0]
+                if(nazwa.length > 40) {
+                    nazwa = nazwa.substring(0,40) + "..."
+                }
+                el.getElementsByTagName("h1")[0].innerHTML = nazwa
+                el.style.top = toop
+                toop += 250
+                document.body.appendChild(el)
+            })
+        })
+        document.getElementsByClassName("ser")[0].style.display = "none"
+    });
+</script>

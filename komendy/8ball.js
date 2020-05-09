@@ -5,10 +5,11 @@ class ball {
     this.alias = ["ball", "8pilka"]
   }
   async run (client, msg, args) {
-    let odpowiedzi = ['Raczej nie!', 'Oczywiście!', 'Ty no nie wiem', 'eee papryka', 'Xiaomi lepsze', 'Jak najbardziej', 'Hehe nie', 'Uno Reverse Card', 'ZabijSięDB jest zajebiste', "ZABIĆ MONGODB"];
-    let i = Math.floor(Math.random() * odpowiedzi.length-2);
+    let odpowiedzi = ['Raczej nie!', 'Oczywiście!', 'Ty no nie wiem', 'eee papryka', 'Xiaomi lepsze', 'Jak najbardziej', 'Hehe nie', 'Uno Reverse Card', 'ZabijSięDB jest zajebiste', "ZABIĆ MONGODB", "Uno reverse card: Tak", "Uno reverse card: Nie"];
+    let i = Math.floor(Math.random() * 8);
     let join = args.join(" ");
     if(join.includes("zabijsiędb")) i = 8;
+    if(join.includes("maks")) i = 1;
     if(join.includes("mongodb") || join.includes("mangodb")) i = 9;
     let embed = new Discord.RichEmbed()
       .setColor(0x198c41)

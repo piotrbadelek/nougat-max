@@ -35,15 +35,16 @@ class pozwij {
                     powodpozwania = m.content;
                     podalpowod = true
                     let embedd = new Discord.RichEmbed()
+                    .setAuthor("Magda Gessler", "https://ocdn.eu/pulscms-transforms/1/3Umk9kpTURBXy85ZTBmZjFmYmE4MGM3MzAzM2E0MDJhN2I4OTM0Y2E2Zi5qcGeTlQPNA8jMi80HxM0EX5MFzQMUzQG8kwmmYWM5ZDZiBoGhMAE/magda-gessler.jpg")
                         .setTitle("Potwierdzasz?")
                         .addField("Zjadasz użytkownika:", client.users.get(idpozwanego).tag)
                         .addField("Zjadasz go za:", powodpozwania)
-                        .setFooter("Potwierdź wpisując tak/nie.")
+                        .setFooter("Potwierdź wpisując ✅ tak/⛔ nie.") //https://ocdn.eu/pulscms-transforms/1/3Umk9kpTURBXy85ZTBmZjFmYmE4MGM3MzAzM2E0MDJhN2I4OTM0Y2E2Zi5qcGeTlQPNA8jMi80HxM0EX5MFzQMUzQG8kwmmYWM5ZDZiBoGhMAE/magda-gessler.jpg
                     msg.channel.send(embedd)
                 }
                 catch(error) {
                   oznaczony = false
-                  msg.channel.send("Błąd! Spróbuj oznaczyć kogo chcesz jeszcze raz!")
+                  msg.channel.send("⛔ Błąd! Spróbuj oznaczyć kogo chcesz jeszcze raz!")
                 }
 
             } else if(oznaczony == true && podalpowod == true) {
@@ -57,7 +58,7 @@ class pozwij {
                     collector.stop()
                     client.users.get(idpozwanego).send("Użytkownik " + msg.author.tag + " zjada Cię!\n\nPowód: " + powodpozwania) // same wysyłanie dma do pozwanego, jak potrzeba to zmienić na embeda czy cokolwiek
                 } else if(m.content.toLowerCase().includes("nie")) {
-                    msg.channel.send("Anuluję zjadanie!") // żebym ja cie zaraz nie zjadł
+                    msg.channel.send("Anuluję zjadanie!")
                     collector.stop()
                 }
             }

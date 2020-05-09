@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs'); //witam
 module.exports = {
   addToTableZSDB: function(table, nowedane) {
     fs.appendFileSync(table, nowedane);
@@ -35,5 +35,23 @@ module.exports = {
     fs.writeFileSync(table, newValue, 'utf-8');
 
     return "Zedytowano tabelę";
+  },
+  findInTableZSDB: function(table, whatToFind) {
+    fs.readFile(table, {encoding: 'utf-8'}, function(err, whatToFind) {
+      console.log(data)
+      let dataArray = data.toString().split('\n');
+      const searchKeyword = whatToFind;
+      let lastIndex = -1;
+
+      for (let index=0; index<dataArray.length; index++) {
+          if (dataArray[index].includes(searchKeyword)) {
+              lastIndex = index;
+              break;
+          }
+      };
+      return lastIndex;
+    })
+    // czy cokolwiek w tym kodzie może działać
+    
   }
 };

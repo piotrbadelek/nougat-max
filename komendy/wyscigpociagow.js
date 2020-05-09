@@ -35,8 +35,9 @@ class wyscigpociagow {
         }
         if(m.content == "*wyscigistart") {
             if(gracze.length < 2) {
-              return msg.channel.send("Aby rozpocząć rozgrywkę, potrzeba 2 graczy!");
-            } else if(wystartowalo == true) {
+              return msg.channel.send("Aby rozpocząć rozgrywkę, potrzebujemy 2 graczy!s")
+            }
+            if(wystartowalo == true) {
 
             } else {
                 let wykolejeni = []
@@ -54,6 +55,9 @@ class wyscigpociagow {
                     gracze.forEach(function(gracz) {
                         let pociagimozliwe = [":bullettrain_front:", ":bullettrain_side:", ":train:", ":train2:", ":tram:", "<:wagontowarowy:699222584918671361>", "<:SFNC:699222584918671361>"]
                         let pociag = pociagimozliwe[Math.floor(Math.random() * pociagimozliwe.length) + 1]
+                        if(pociag == undefined || pociag == "") {
+                            pociag = "<:SFNC:699222584918671361>"
+                        }
                         let c = pociagi.push(pociag + ";" + gracz + ";0")
                     })
                     pociagi.forEach(function(pociagiitp) {
@@ -130,7 +134,7 @@ class wyscigpociagow {
                               .setColor((Math.random() * 0xFFFFFF << 0).toString(16))
                               .setAuthor(msg.author.username + "#" + msg.author.discriminator, msg.author.displayAvatarURL)
                               .setDescription("Gratulujemy! 👏\n" + wygrywaja[0] + " wygrał wyścig! 🎉")
-                              .setFooter("Użytkownik ma już " + liczba + " wygranych. | Polskie Linie Kolejowe")
+                              .setFooter("Użytkownik ma już " + liczba + " wygranych. | Polskie Linie Kolejowe | Wygrano 25 NLN")
                               .setTimestamp();
                               msg.channel.send(embed);
                                 clearInterval(x)
