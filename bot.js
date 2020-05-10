@@ -48,7 +48,7 @@ client.on("message", async msg => {
     const cmdh = ch.get(cmd);
     if (!cmdh) return undefined;
 
-    cmdh.run(client, msg, args, active);
+    cmdh.run(client, msg, args, active, ch);
 
     if (cmd === prefix + 'test') {
       msg.reply('Test!');
