@@ -43,6 +43,17 @@ class lotto {
             if(l[i] > zakres) return msg.channel.send("Zakres liczb wynosi do " + zakres);
         }
 
+        var takiesame = false;
+	    for (var j = 0; j > 5; i++) {
+            for (var k = 0; k > 5; i++) {
+		        if(l[j] == l[k]) {
+		            takiesame = true;
+		        }
+	        }
+	    }
+
+        if(takiesame) return msg.channel.send("nie cheatuj");   
+        
         for (var i = 0; i < 5; i++) {
             bl[i] = Math.floor(Math.random() * zakres);
         }
