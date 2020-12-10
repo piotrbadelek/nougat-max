@@ -1,0 +1,106 @@
+<html lang="pl">
+<!--WITAM-->
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../style.css">
+    <title>Nougat - Panel</title>
+    <style type="text/css">
+        a:link {
+            color: white;
+        }
+
+        a:visited {
+            color: white;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        a:active {
+            color: white;
+        }
+
+        a,
+        u {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<!--jak sie podoba navbar-->
+
+<body>
+    <!-- czm on nie jest od początku od lewej strony   bo tak go zrobiłem-->
+    <!-- kurwa jak im zadzwonie na infolinie to sie zdziwia love orange -->
+    <div class="sidebar"
+        style="position: absolute;left: 0px;bottom: 0px; background-image: url(../sidebar.png); height: 100%;background-size: cover; width: 189px;">
+        <a href="./panel">
+            <h3>Serwery</h3><br>
+        </a>
+        <a href="#">
+            <h3>Ustawienia</h3><br>
+        </a>
+        <a href="#">
+            <h2>• Leaderboard</h2><br>
+        </a>
+        <a href="../api/logout">
+            <h3>Wyloguj</h3>
+        </a>
+        <a href="#" style="top: 80%; position: absolute; left: 5%;">
+            <h3>Nougat Dashboard</h3>
+        </a>
+        <!--zrobie też jakiś gradient od tego chwila-->
+    </div>
+    <div class="pagetitle"
+        style="position: absolute; left: 200px; /*na 7% glitchuje się na mniejszych ekranach    a jak zrobić obraz i tekst w 1 linijce? spróbuj display: flex tutaj*/ top: 10px;display: flex;">
+        <img src="../trophy.png" style="width: 76px;">
+        <h1>Leaderboard</h1>
+        <!--zrobie przezroczystosc chwilka   ok super teraz moze oauth naprawmy-->
+        <!-- co się z przezroczystością stało właśnie nie wiem-->
+    </div>
+    <!-- co próbujesz zrobić?  na dsc ci wyśle  albo chce zrobić tutaj takie coś jak w panelu sterowania w viscie (dodatkowe opcje po boku) ok-->
+    <h1 style="margin-top: 100px;">10 najbogatszych osób (globalnie):</h1>
+    <div id="wczytywanie">
+        <img class="server_avatar" src="../loading.gif"
+            style="border-radius: 50px;width: 128px;height: 128px;margin-left: 5px;margin-top: 5px;"
+            alt="Trwa wczytywanie..." />
+        <p>Proszę czekać, wczytywanie danych...</p>
+    </div>
+    <!-- teoretycznie dałoby się brać wszystkich członków z serwera ich pieniądze i porównywać ale dużo roboty by było  to zostanmy przy globalnym-->
+    <!--<footer id="aaaaaa" style="position: absolute;top: 100%;">ProgramistaZpolski, liskqu, TheTrollErrorsGuy65 (także znani jako Nougat Interactive) © 2020-2020, made in greenland XD<br><img style="margin-top: 5px;" src = "http://www.programistazpolski.ct8.pl/newnougat.png" width="10%"></footer> ok-->
+</body>
+
+</html>
+<script>
+    var toop = 30 // gdzie są pieniądze zapisane? w katalogu bota zaraz pokaze    a i jak coś adres na ktorym dashboard bedzie to 83.7.48.22:1337 pieniądze musiałyby być w panelu
+    fetch(".././pieniadze")
+        .then((response) => {
+            response.text().then(t => {
+                // t - baza z pieniędzmi
+                let pien = []
+                let bal = []
+                let highest = 0;
+                t.split("\n").forEach(function (czlonek) {
+                    try {
+                        let a = pien.push(czlonek.split(";")[1].split("-")[0] + ";" + czlonek.split("-")[1])
+                        let b = bal.push(parseInt(czlonek.split(";")[1].split("-")[0]))
+                    }
+                    catch (error) { }
+                })
+                bal = bal.sort((a, b) => b - a);
+                bal = bal.slice(0, 10)
+                bal.forEach(function (balans) {
+                    pien.forEach(function (p) {
+                        if (parseInt(p.split(";")[0]) == balans) {
+                            let a = document.createElement("h4")
+                            a.innerHTML = p.split(";")[1] + " - " + balans + "NLN"
+                            document.body.appendChild(a)
+                        }
+                    })
+                })
+                document.getElementById("wczytywanie").innerHTML = ""
+
+            }) //  a tak wgl to może skorzystamy z chatu wbudowanego w vsc? liseu już go ma
+        })
+</script>
