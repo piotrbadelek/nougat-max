@@ -6,7 +6,7 @@ class help {
   }
   async run (client, msg, args) {
     // embedy
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
 
     if(!args[0]) {
       embed.setColor(0x198c41)
@@ -23,7 +23,7 @@ class help {
     } else if (args[0].toString().toLowerCase() == "rozrywka") {
       embed.setColor(0x198c41)
       embed.setTitle("Pomoc 📚")
-      embed.setDescription("Pomoc/☺Rozrywka\n\n\`*8ball\` - Losowo odpowiada na pytanie.\nPoprawne użycie: \`*8ball <pytanie>\`\n\n`*ciastko\` - Daje ci ciastko.\n\n\`*odwroc\` - Odwraca tekst\nPoprawne użycie: \`*odwroc <tekst>\`\n\n\`*pozwij\` - Pozywa użytkownika do sadu.\n\n\`*rps\` - Kamień Papier Nożyce.\nPoprawne użycie: \`*rps <1 - Nożyce, 2 - Papier, 3 - Kamień>\`\n\n`*sms\` - Wysyła SMS do danej osoby.\n\n\`*statki\` - Shipowanie.\nPoprawne użycie: \`*statki <tekst> <tekst>\`\n\n\`*wybierz\` - Wybiera jedną z dwóch rzeczy\nPoprawnie użycie: \`*wybierz <tekst> <tekst>\`\n\n\`*wyscig\` - Mini gra w której ścigają się pociągi.\n\n\`*zjedz\` - Działa na takiej samej zasadzie co komenda pozwij lecz zamiast pozywania jest jedzenie.")
+      embed.setDescription("Pomoc/☺Rozrywka\n\n\`*8ball\` - Losowo odpowiada na pytanie.\nPoprawne użycie: \`*8ball <pytanie>\`\n\n`*ciastko\` - Daje ci ciastko.\n\n\`*cowsay\` - Krowa coś mówi.\nPoprawne użycie: \`*cowsay <tekst>\`\n\n\`*odwroc\` - Odwraca tekst\nPoprawne użycie: \`*odwroc <tekst>\`\n\n\`*pozwij\` - Pozywa użytkownika do sadu.\n\n\`*rps\` - Kamień Papier Nożyce.\nPoprawne użycie: \`*rps <1 - Nożyce, 2 - Papier, 3 - Kamień>\`\n\n`*say\` - Bot mówi coś za ciebie\nPoprawne użycie: \`*say <tekst do powiedzenia>\`\n\n`*sms\` - Wysyła SMS do danej osoby.\n\n\`*statki\` - Shipowanie.\nPoprawne użycie: \`*statki <tekst> <tekst>\`\n\n\`*wybierz\` - Wybiera jedną z dwóch rzeczy\nPoprawnie użycie: \`*wybierz <tekst> <tekst>\`\n\n\`*wyscig\` - Mini gra w której ścigają się pociągi.\n\n\`*zjedz\` - Działa na takiej samej zasadzie co komenda pozwij lecz zamiast pozywania jest jedzenie.")
       embed.setFooter("Pomoc")
       embed.setTimestamp();
     } else if (args[0].toString().toLowerCase() == "moderacja") {
@@ -42,6 +42,18 @@ class help {
       embed.setColor(0x198c41)
       embed.setTitle("Pomoc 📚")
       embed.setDescription("Pomoc/🎶Muzyka\n\n\`*play\` - Dodaje piosenkę z podanego linku do kolejki.\nPoprawne użycie: \`*play <URL>\`\n\n\`*stop\` - Bot wychodzi z kanału głosowego");
+      embed.setFooter("Pomoc")
+      embed.setTimestamp();
+    } else if (args[0].toString().toLowerCase() == "obrazki") {
+      embed.setColor(0x198c41)
+      embed.setTitle("Pomoc 📚")
+      embed.setDescription("Pomoc/🖼️Obrazki\n\n\`*deepfry\` - Grilluje twoje obrazki. \n\n\`*discord\` - Przerabia logo firmy Discord.\nPrawidłowe użycie: \`*discord <tekst>\`\n\n\`*flip\` - Robi odbicie lustrzane obrazka. 🪞\n\n\`*flip2\` - Obraca obrazek do góry nogami. 🙃\n\n\`*gadugadu\` - Przerabia obrazek firmy (a ja wiem czy to firma) GaduGadu.\nPoprawne użycie: \`*gadugadu <tekst>\`\n\n\`*greyscale\` - Twój obrazek staję się czarnobiały \\* magic 🧝‍♀️ \\*\n\n\`*guassian\` - Twój obrazek dostaje depresji.\n\n\`*google\` - Przerabia logo firmy Google.\nPoprawne użycie: \`*google <tekst>\`\n\n\`*invert\` - Twój obrazek przechodzi na ciemną stronę mocy. 👿\n\n\`*messenger\` - Przerabia logo aplikacji Messenger firmy Facebook.\nPoprawne użycie: \`*messenger <tekst>\`\n\n\`*normalize\` - Sprawia że twoje zdjęcie staję się spleśniałe. 🧀\n\n\`*odswiatlo\` - Wywala światło z twojego obrazka. 🕶️\n\n\`*posterization\` - Usuwa większość kolorów widniejących na obrazku. 👰🏿\n\n\`*sepia\` - Wehikuł czasu, przenieś się do lat starożytności.\n\n\`*swiatlo\` - Dodaje światło do twojego obrazka. 🤷🏻\n\n\`*sztrecz\` - Rozciąga twoj obrazek.");
+      embed.setFooter("Pomoc");
+      embed.setTimestamp();
+    } else {
+      embed.setColor(0x198c41)
+      embed.setTitle("Pomoc 📚")
+      embed.setDescription("Taka kategoria nie istnieje!");
       embed.setFooter("Pomoc")
       embed.setTimestamp();
     }

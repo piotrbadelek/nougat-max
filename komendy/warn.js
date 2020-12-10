@@ -26,10 +26,10 @@ class warn {
           if(tuliczbawarnow.includes(msg.guild.id + "|" + doWarnu)) {
               let jegoWarny = parseInt(tuliczbawarnow.split("|")[2].split(";")[0]);
               zabijsie.editTableZSDB(warnZabij, msg.guild.id + "|" + doWarnu + "|" + (jegoWarny + 1).toString() + ";", msg.guild.id + "|" + doWarnu + "|" + jegoWarny + ";")
-              msg.channel.send("Dałem ostrzeżenie osobie " + client.users.get(doWarnu).username + "!")
+              msg.channel.send("Dałem ostrzeżenie osobie " + client.users.cache.get(doWarnu).username + "!")
           }else{
               zabijsie.addToTableZSDB(warnZabij, msg.guild.id + "|" + doWarnu + "|" + "1" + ";\n");
-              msg.channel.send("Dałem ostrzeżenie osobie " + client.users.get(doWarnu).username + "!")
+              msg.channel.send("Dałem ostrzeżenie osobie " + client.users.cache.get(doWarnu).username + "!")
           }
         }
         

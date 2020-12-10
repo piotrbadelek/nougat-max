@@ -24,7 +24,7 @@ class sepia {
         // Wait for Canvas to load the image
         // Draw a shape onto the main canvas
         function hahayes() {
-            const attachment = new Discord.Attachment('./images/sepia.png');
+            const attachment = new Discord.MessageAttachment('./images/sepia.png');
 
             msg.channel.send(`Oto twój obrazek!`, attachment);
             console.log("sepia");

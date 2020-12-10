@@ -50,7 +50,7 @@ class wyscigpociagow {
                     otwarte = false
                     let mapa = ""
                     let makspol = 9
-                    let pole = "<:tory:699295080657322085>+"
+                    let pole = "<:tory:712749942170714193>+"
                     let pociagi = []
                     gracze.forEach(function(gracz) {
                         let pociagimozliwe = [":bullettrain_front:", ":bullettrain_side:", ":train:", ":train2:", ":tram:", "<:wagontowarowy:699222584918671361>", "<:SFNC:699222584918671361>"]
@@ -130,7 +130,7 @@ class wyscigpociagow {
                                 })
                                 zabijsie.addToTableZSDB(wygraneplik, wygrywaja[0] + "|" + liczba + ";")
                               }
-                              let embed = new Discord.RichEmbed()
+                              let embed = new Discord.MessageEmbed()
                               .setColor((Math.random() * 0xFFFFFF << 0).toString(16))
                               .setAuthor(msg.author.username + "#" + msg.author.discriminator, msg.author.displayAvatarURL)
                               .setDescription("Gratulujemy! 👏\n" + wygrywaja[0] + " wygrał wyścig! 🎉")
@@ -169,7 +169,7 @@ class wyscigpociagow {
                                     wygrane += wygranyyy + " ma " + liczba + " wygranych. "
                                 }
                             })
-                              let embed = new Discord.RichEmbed()
+                              let embed = new Discord.MessageEmbed()
                                 .setColor((Math.random() * 0xFFFFFF << 0).toString(16))
                                 .setAuthor(msg.author.username + "#" + msg.author.discriminator, msg.author.displayAvatarURL)
                                 .setDescription("Gratulujemy remisu! 👏\n" + wygrywaja.join(", ") + " wygrywają wyścig! 🎉")

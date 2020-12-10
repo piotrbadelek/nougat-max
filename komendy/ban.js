@@ -25,11 +25,11 @@ class ban {
         if (user === msg.author) return msg.channel.send('A po co pan chce siebie banowac'); // Check if the user mention or the entered userID is the msg author himsmelf
         if (!reason) return msg.reply('Proszę pana a jaki powód do tego (ERROR: Nie podano powodu)'); // Check if a reason has been given by the msg author
         if (!msg.guild.member(user).bannable) return msg.reply('A co chce pan zbanować? Właściciela? (ERROR: Użytkownik ma wyszszą rangę niż ty)');
-        if (msg.author.roles.find(role => role.name === 'Admin')) return msg.reply('A co chce pan zbanować? Właściciela? (ERROR: Użytkownik ma wyszszą rangę niż ty)'); // Check if the user is bannable with the bot's permissions
+        console.log(msg.author);
         if (args)
-            await msg.guild.ban(user) // Bans the user
+            await msg.guild.members.ban(user) // Bans the user
 
-        const banConfirmationEmbed = new Discord.RichEmbed()
+        const banConfirmationEmbed = new Discord.MessageEmbed()
             .setColor('RED')
             .setDescription(`✅ ${user.tag} został zbanowany`);
         msg.channel.send({
@@ -41,7 +41,7 @@ class ban {
         if (modlogChannelID.length !== 0) {
             if (!client.channels.get(modlogChannelID)) return undefined; // Check if the modlogChannelID is a real Discord server channel that really exists
 
-            const banConfirmationEmbedModlog = new Discord.RichEmbed()
+            const banConfirmationEmbedModlog = new Discord.MessageEmbed()
                 .setAuthor(`Zbanowany przez **${msg.author.username}#${msg.author.discriminator}**`, msg.author.displayAvatarURL)
                 .setThumbnail(user.displayAvatarURL)
                 .setColor('RED')
@@ -51,7 +51,7 @@ class ban {
 **Powód**: ${reason}`);
             client.channels.get(modlogChannelID).send({
                 embed: banConfirmationEmbedModlog
-            }); // Sends the RichEmbed in the modlogchannel
+            }); // Sends the MessageEmbed in the modlogchannel
         }
     }
 } // co bo nie widzialem co ty zrobiles ze sie bot odpalic nie chce

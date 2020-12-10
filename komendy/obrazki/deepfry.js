@@ -26,7 +26,7 @@ class deepfry {
         // Wait for Canvas to load the image
         // Draw a shape onto the main canvas
         function hahayes(){
-            const attachment = new Discord.Attachment('./images/deepfry.png');
+            const attachment = new Discord.MessageAttachment('./images/deepfry.png');
 
             msg.channel.send(`Oto twój obrazek!`, attachment);
             console.log("dipfri");

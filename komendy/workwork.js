@@ -1,4 +1,4 @@
-const Discord = require("discord.js")
+const Discord = require("discord.js") // ja czuję że coś tutaj może być ok spojrzmy
 const zabijsie = require("../zabij-sie-db.js");
 var dateObj = new Date();
 class workwork {
@@ -11,13 +11,14 @@ class workwork {
             // użytkownik ma już jakieś pieniądze
             let pieniadze = zabijsie.readTableZSDB("./pieniadze.txt")
             if (pieniadze.includes(msg.author.id)) {
-                // użytkownik ma już jakieś pieniądze
+                // użytkownik ma już jakieś pieniądze jeszcze zobaczę inne pliki
+                // włączyłem w vsc szukanie po tym gdzie pisze pieniadze.txt
                 let current = pieniadze.split(msg.author.id + ";")[1].split("-")[0]
-                let nowailosc = parseInt(current) + moni // 2 to liczba NLN dodawanych za każdym wpisem
+                let nowailosc = parseInt(current) + parseInt(moni) // 2 to liczba NLN dodawanych za każdym wpisem
                 zabijsie.editTableZSDB("./pieniadze.txt", msg.author.id + ";" + nowailosc + "-", msg.author.id + ";" + current + "-") // zmiana ilości
             } else {
                 // użytkownik nie ma jeszcze nic
-                zabijsie.addToTableZSDB("./pieniadze.txt", "\n" + msg.author.id + ";" + moni + "-" + msg.author.tag)
+                zabijsie.addToTableZSDB("./pieniadze.txt", "\n" + msg.author.id + ";" + parseInt(moni) + "-" + msg.author.tag)
             }
             msg.channel.send("Zarobiłeś " + moni + "NLN!")
         }
@@ -29,7 +30,7 @@ class workwork {
             let twoje = parseInt(czas.split(msg.author.id + ";")[1].split("-")[0]);
             console.log(twoje)
             console.log(day)
-            if (twoje == day) {
+            if (twoje == day) { // i tak możesz je dodać z tego pliku xd
                 msg.channel.send("a co kradnie pan pieniążki, pewnie na passata (ERROR: Pracować możesz dopiero jutro!)")
             } else {
                 let nowailosc = day
@@ -37,12 +38,12 @@ class workwork {
             }
         } else {
             // użytkownik nie ma jeszcze nic
-            zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
             if (join == 99) {
                 console.log("pracasecret")
                 if (d < 0.05) {
                     msg.channel.send("ma pan to prace")
                     addmoni(7500);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             if (join == 1) {
@@ -50,6 +51,7 @@ class workwork {
                 if (d < 0.05) {
                     msg.channel.send("ma pan to prace")
                     addmoni(2000);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else if (join == 2) {
@@ -57,6 +59,7 @@ class workwork {
                 if (d < 0.08) {
                     msg.channel.send("ma pan to prace")
                     addmoni(1800);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else if (join == 3) {
@@ -64,6 +67,7 @@ class workwork {
                 if (d < 0.1) {
                     msg.channel.send("ma pan to prace")
                     addmoni(1500);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else if (join == 4) {
@@ -71,6 +75,7 @@ class workwork {
                 if (d < 0.15) {
                     msg.channel.send("ma pan to prace")
                     addmoni(1000);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else if (join == 5) {
@@ -78,6 +83,7 @@ class workwork {
                 if (d < 0.25) {
                     msg.channel.send("ma pan to prace")
                     addmoni(900);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else if (join == 6) {
@@ -85,6 +91,7 @@ class workwork {
                 if (d < 0.3) {
                     msg.channel.send("ma pan to prace")
                     addmoni(750);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else if (join == 7) {
@@ -92,6 +99,7 @@ class workwork {
                 if (d < 0.4) {
                     msg.channel.send("ma pan to prace")
                     addmoni(600);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else if (join == 8) {
@@ -99,6 +107,7 @@ class workwork {
                 if (d < 0.6) {
                     msg.channel.send("ma pan to prace")
                     addmoni(500);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else if (join == 9) {
@@ -106,6 +115,7 @@ class workwork {
                 if (d < 0.8) {
                     msg.channel.send("ma pan to prace")
                     addmoni(200);
+                    zabijsie.addToTableZSDB("./workwork.txt", "\n" + msg.author.id + ";" + day + "-" + msg.author.tag)
                 }
             }
             else {

@@ -39,9 +39,9 @@ class userinfo {
           break;
     }
 
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor(0x128070)
-    .setAuthor(user.username + "#" + user.discriminator, user.displayAvatarURL)
+    .setAuthor(user.username + "#" + user.discriminator, user.displayAvatarURL())
     .addField("✅ Konto stworzone", `${createddate.getDate()}.${cdMon.substr(-2)}.${createddate.getFullYear()} ${createddate.getHours()}:${createddate.getHours()}:${cdMin.substr(-2)}`, true)
     .addField("🤔 Status", status, true)
     .addField("➡️ Dołączono na serwer", `${joineddate.getDate()}.${jdMon.substr(-2)}.${joineddate.getFullYear()} ${joineddate.getHours()}:${joineddate.getHours()}:${jdMin.substr(-2)}`,true)

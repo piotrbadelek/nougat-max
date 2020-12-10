@@ -5,8 +5,8 @@ class plej {
     this.name = "play",
     this.alias = []
   }
-  async run (client, msg, args, active) {
-      if (!msg.member.voiceChannel) return msg.channel.send("Nie znajdujesz się na żadnym kanale głosowym!");
+  async run (client, msg, args, kolejka) {
+      if (!msg.member.voice.channel) return msg.channel.send("Nie znajdujesz się na żadnym kanale głosowym!");
       if (!args[0]) return msg.channel.send("Nieprawidłowy adres URL");
 
       let validate = await ytdl.validateURL(args[0]);
@@ -25,7 +25,7 @@ class plej {
 
       let info = await ytdl.getInfo(args[0]);
 
-      let data = active.get(msg.guild.id) || {};
+      let data = kolejka.get(msg.guild.id) || {};
 
       if (!data.connection) data.connection = await msg.member.voiceChannel.join();
       if (!data.queue) data.queue = [];
@@ -39,10 +39,10 @@ class plej {
         channel: msg.channel
       });
 
-      if (!data.dispatcher) play(client, active, data, data.queue[0].channel);
+      if (!data.dispatcher) play(client, kolejka, data, data.queue[0].channel);
       else {
 
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
         .setColor("#4287f5")
         .setDescription("Dodano do kolejki: **" + info.title + "** [\[link]\](" + info.video_url + ")") 
         .setFooter("Dodane przez: "+msg.author.username + "#" + msg.author.discriminator, msg.author.displayAvatarURL)
@@ -51,7 +51,7 @@ class plej {
 
       }
 
-      active.set(msg.guild.id, data);
+      kolejka.set(msg.guild.id, data);
   }
 }
 
@@ -64,22 +64,22 @@ async function play(client, active, data, kanau) {
     kanau.send(embed);
 
     data.dispatcher = await data.connection.playStream(ytdl(data.queue[0].url, { filter: "audioonly" }));
-    data.dispatcher.guildID = data.guildID;
+    //data.dispatcher.guildID = data.guildID;
     data.dispatcher.once("finish", function(){
-        finish(client, active, this);
+        finish(client, active, data, this);
     });
 }
 
-function finish(client, active, dispatcher) {
-    let fetched = active.get(dispatcher.guildID);
+function finish(client, active, data, dispatcher) {
+    let fetched = kolejka.get(data.guildID);
     fetched.queue.shift();
     if (fetched.queue.length > 0) {
-        active.set(dispatcher.guildID, fetched);
+        active.set(data.guildID, fetched);
 
-        play(client, active, fetched);
+        play(client, active, fetched, data.queue[0].channel);
     } else {
-        active.delete(dispatcher.guildID);
-        let vc = client.guilds.get(dispatcher.guildID).me.voiceChannel;
+        kolejka.delete(data.guildID);
+        let vc = client.guilds.get(data.guildID).me.voiceChannel;
         if (vc) vc.leave()
     }
 }

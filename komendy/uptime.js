@@ -13,7 +13,7 @@ class uptime {
         let seconds = totalSeconds % 60;
         seconds = Math.floor(seconds)
         let uptajm = `${days} dni, ${hours} godzin, ${minutes} minut oraz ${seconds} sekund`;
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
             .setColor(0x198c41)
             .setTitle(`Uptime Bota`)
             .setDescription(uptajm);

@@ -13,19 +13,19 @@ class hajs {
       let id = msg.content.replace(/[^0-9]/g,"")
       if(pieniadze.includes(id)) {
         let balans = pieniadze.split(id + ";")[1].split("-")[0]
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
         .setColor("#32a852")
-        .setAuthor(client.users.get(id).username, client.users.get(id).displayAvatarURL)
-        .setDescription(`${client.users.get(id).username} posiada ${balans} ${waluta}! :moneybag: \n NLN = niemiecki złotych \n RUR = Rosyjskie Euro`)
-        .setFooter("Ekonomia");
+        .setAuthor(client.users.cache.get(id).username, client.users.cache.get(id).displayAvatarURL())
+        .setDescription(`${client.users.cache.get(id).username} posiada ${balans} ${waluta}! :moneybag: \n NLN = niemiecki złotych`)
+        .setFooter("Ekonomia | Pieniądze są aktualizowane co 10 minut");
         msg.channel.send(embed)
       } else {
         try {
-          let embed = new Discord.RichEmbed()
+          let embed = new Discord.MessageEmbed()
           .setColor("#32a852")
-          .setAuthor(client.users.get(id).username, client.users.get(id).displayAvatarURL)
-          .setDescription(`${client.users.get(id).username} nic jeszcze nie zarobił! :moneybag: \n NLN = niemiecki złotych \n RUR = Rosyjskie Euro`)
-          .setFooter("Ekonomia");
+          .setAuthor(client.users.cache.get(id).username, client.users.cache.get(id).displayAvatarURL())
+          .setDescription(`${client.users.cache.get(id).username} nic jeszcze nie zarobił! :moneybag: \n NLN = niemiecki złotych`)
+          .setFooter("Ekonomia | Pieniądze są aktualizowane co 10 minut");
           msg.channel.send(embed)
         }
         catch(error) {
@@ -39,11 +39,11 @@ class hajs {
       balans = balans / 1 //inflancja
       let balanspln = balans * 5.5
       balanspln = Math.floor(balanspln)
-      let embed = new Discord.RichEmbed()
+      let embed = new Discord.MessageEmbed()
       .setColor("#32a852")
       .setAuthor(msg.author.username, msg.author.displayAvatarURL)
       .setDescription(`Posiadasz ${balans} ${waluta} :moneybag: \n NLN = niemiecki złotych \n W złotówkach to około ${balanspln}zł!`)
-      .setFooter("Ekonomia");
+      .setFooter("Ekonomia | Pieniądze są aktualizowane co 10 minut");
       msg.channel.send(embed)
     }
   }

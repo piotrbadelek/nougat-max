@@ -6,17 +6,17 @@ const bodyParser = require("body-parser");
 const router = express.Router();
 CLIENT_ID = "698613249616117881";
 CLIENT_SECRET = "E7mmR_k6JQgCtkl0GXoX2Z3H_Q7lgHJM"
-redirect = "http://83.7.49.211:1337/api/callback/"
-router.get('/login', (req, res) => {
-    res.redirect(`https://discordapp.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=` + encodeURIComponent(redirect) + `&response_type=code&scope=identify guilds`);
+redirect = "http://83.7.215.70:1337/api/callback" //http://83.7.42.185:1337/api/callback
+router.get('/login', (req, res) => { // w ustawieniach bota redirect jest ustawiony na http://83.7.42.185:1337/api/callback co wy tu probujecie     naprawiamy oauth
+    res.redirect(`https://discord.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=` + encodeURIComponent(redirect) + `&response_type=code&scope=identify guilds`);
 }); 
-router.get('/callback', (req, res) => {
+router.get('/callback', (req, res) => { // ja nie moge dlaczego ten discord zmienił domene bez potrzeby asdashdfashdghj
     if(!req.query.code) throw new Error("No code provided ty debilu");
     const code = req.query.code;
     const creds = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64");
     rp({
         method: "POST",
-        uri: `https://discordapp.com/api/oauth2/token?grant_type=authorization_code&code=${code}&redirect_uri=${redirect}`,
+        uri: `https://discord.com/api/oauth2/token?grant_type=authorization_code&code=${code}&redirect_uri=${redirect}`,
         headers: {
             "Authorization": `Basic ${creds}`,
             "User-Agent": "NougatBot v1"
@@ -34,7 +34,7 @@ function getto(token) {
     return new Promise((resolve, reject => {
         rp({
             method: "GET",
-            uri: `https://discordapp.com/api/users/@me`,
+            uri: `https://discord.com/api/users/@me`,
             headers: {
                 "Authorization": `Bearer ${token}`,
                 'User-Agent': "NougatBot v1"
@@ -64,7 +64,7 @@ router.get('/check', (req, res) => {
             res.status(401);
             return res.send({ status: "ERROR", message: "Not logged in!"});
         }
-        rp("https://discordapp.com/api/users/@me", {
+        rp("https://discord.com/api/users/@me", {
             headers: {
                 Authorization: "Bearer " + req.cookies.token
             },
@@ -96,7 +96,7 @@ router.get('/serwery', (req, res) => {
             res.status(401);
             return res.send({ status: "ERROR", message: "Not logged in!"});
         }
-        rp("https://discordapp.com/api/users/@me/guilds", {
+        rp("https://discord.com/api/users/@me/guilds", {
             headers: {
                 Authorization: "Bearer " + req.cookies.token
             },
@@ -124,7 +124,7 @@ router.get('/serwery', (req, res) => {
 router.get('/logout', (req, res) => {
     rp({
         method: "POST",
-        uri: `https://discordapp.com/api/oauth2/token/revoke?token=` + req.cookies.token,
+        uri: `https://discord.com/api/oauth2/token/revoke?token=` + req.cookies.token,
         headers: {
             "User-Agent": "Nougat v1"
         }

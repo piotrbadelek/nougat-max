@@ -50,7 +50,7 @@ class gugel {
 	ctx.clip();
 
 
-	const attachment = new Discord.Attachment(canvas.toBuffer(), 'welcome-image.png');
+	const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome-image.png');
 
 	msg.channel.send(`Oto twój obrazek!`, attachment);
     console.log("gadugadu");

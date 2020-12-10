@@ -51,7 +51,7 @@ module.exports = {
       };
       return lastIndex;
     })
-    // czy cokolwiek w tym kodzie może działać
+    // czy cokolwiek w tym kodzie może działać nie
     
   }
 };

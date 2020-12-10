@@ -6,9 +6,10 @@ class ankieta {
         this.alias = []
     }
     async run (client, msg, args) {
+        console.log("ankieta");
         let tresc = args.join(" ");
         let glosy = []
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
         .setColor("#49fc03")
         .setAuthor(msg.author.username + "#" + msg.author.discriminator, msg.author.displayAvatarURL)
         .setDescription(tresc)
@@ -16,12 +17,12 @@ class ankieta {
         msg.channel.send(embed).then(m => {
             m.react("👍");
             m.react("👎");
-            let collector = msg.channel.createCollector(m => m)
+            let collector = msg.channel.createMessageCollector(m => m)
             collector.on('collect', ms => {
 
                 if(ms.content == "*stop") {
                     if(ms.author.id == msg.author.id) {{
-                        let emb = new Discord.RichEmbed()
+                        let emb = new Discord.MessageEmbed()
                         .setColor("#49fc03")
                         .setAuthor(msg.author.username + "#" + msg.author.discriminator, msg.author.displayAvatarURL)
                         .setDescription("Odpowiedzi do pytania \"" + tresc + "\"");

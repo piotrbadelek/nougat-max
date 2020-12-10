@@ -21,9 +21,9 @@ class sprzedaj {
         let collector;
         msg.author.send("Co chcesz sprzedać? :thinking:") 
         console.log(msg.author.id)
-        client.users.get(msg.author.id).createDM().then(kanal => {
+        client.users.cache.get(msg.author.id).createDM().then(kanal => {
             let etap = 0
-            collector = kanal.createCollector(m => m); 
+            collector = kanal.createMessageCollector(m => m); 
             collector.on("collect", m => { 
                 if (m.author.id == client.user.id) {} else {
                     etap += 1
@@ -44,7 +44,7 @@ class sprzedaj {
                     if (etap == 3) {
                         productCos = m.content;
                         podaltekstlubcos = true;
-                        let embed = new Discord.RichEmbed()
+                        let embed = new Discord.MessageEmbed()
                         .setColor((Math.random() * 0xFFFFFF << 0).toString(16))
                         .setAuthor(client.user.username + "#" + client.user.discriminator, client.user.displayAvatarURL)
                         .setTitle("Wszystko się zgadza?")
@@ -63,7 +63,7 @@ class sprzedaj {
                             let idProdukt = randomString(5, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
                             msg.author.send(`Wystawiasz produkt "${productName}" na sprzedaż!`)
                             let staralista = zabijsie.readTableZSDB(plik)
-                            zabijsie.rewriteTableZSDB(plik, productName + "|" + productCena + "|" + idProdukt + "|" + productCos + "\n" + staralista)
+                            zabijsie.rewriteTableZSDB(plik, productName + "|" + idProdukt + "|" + productCena + "|" + productCos + "|\n" + staralista)
                         }
                         
                     }

@@ -5,7 +5,7 @@ class openlink {
     this.alias = ["git", "github"]
   }
   async run (client, msg, args) {
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
       .setAuthor("Nougat", "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png")
       .setColor(0x198c41)
       .setTitle(`Nougat jest open source!`)

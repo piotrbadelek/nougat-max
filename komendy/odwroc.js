@@ -11,7 +11,7 @@ class odwroc {
     nein.forEach(function(nien) {
       odwrocone = odwrocone.split(nien).join("")
     })
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
       .setColor(0x198c41)
       .setTitle(`Odwrócony tekst`)
       .setDescription(odwrocone);

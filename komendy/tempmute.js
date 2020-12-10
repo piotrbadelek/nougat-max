@@ -12,7 +12,7 @@ class tempmute {
         let tomute = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
         if (!tomute) return msg.reply("Houston, mamy problem (ERROR: Nie znaleziono osoby)");
         if (tomute.hasPermission("MANAGE_MESSAGES")) return msg.reply("A kogo ty chcesz wyciszyć? Właściciela? (ERROR: Osoba ma zbyt wysokie uprawnienia)");
-        let muterole = msg.guild.roles.find(`name`, "muted");
+        let muterole = msg.guild.roles.cache.find(role => role.name == "muted");
         //start of create role
         msg.channel.send("Proszę czekać, dodawanie roli...");
         if (!muterole) {
@@ -53,15 +53,15 @@ class tempmute {
         }
         console.log(mutetype2);
         if (!mutetime) return msg.reply("Nie podał pan na ile wyciszyć. (ERROR: Nie podano na ile wyciszyć użytkownika)");
-        await (tomute.addRole(muterole.id));
-        let embed = new Discord.RichEmbed()
+        await (tomute.roles.add(muterole.id));
+        let embed = new Discord.MessageEmbed()
         .setColor(0x198c41)
         .setTitle(`Moderacja / Tempmute`)
-        .setDescription("<@${tomute.id}> został wyciszony na ${ms(ms(mutetime / 60000))}` + mutetype2");
+        .setDescription(`<@${tomute.id}> został wyciszony na ${mutetime / 60000}` + mutetype2);
         msg.channel.send(embed);
 
         setTimeout(function () {
-            tomute.removeRole(muterole.id);
+            tomute.roles.remove(muterole.id);
             msg.channel.send(`<@${tomute.id}> już może rozmawiać!`);
         }, (mutetime));
     }

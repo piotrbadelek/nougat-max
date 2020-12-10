@@ -28,7 +28,7 @@ class dailynln {
                     let current = pieniadze.split(msg.author.id + ";")[1].split("-")[0]
                     let nowailosc = parseInt(current) + 150 // 2 to liczba NLN dodawanych za każdym wpisem
                     zabijsie.editTableZSDB("./pieniadze.txt", msg.author.id + ";" + nowailosc + "-", msg.author.id + ";" + current + "-") // zmiana ilości
-                    let embed = new Discord.RichEmbed()
+                    let embed = new Discord.MessageEmbed()
                         .setColor(0x198c41)
                         .setTitle(`D A I L Y`)
                         .setDescription("Dostał pan 150NLN");
