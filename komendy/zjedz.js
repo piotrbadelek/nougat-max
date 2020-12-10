@@ -31,13 +31,13 @@ class pozwij {
             } else if(oznaczony == true && podalpowod == false) {
                 // próbujemy wziąć informacje o pozwanym, jak nie wyjdzie to jeszcze raz prosimy o oznaczenie
                 try {
-                    console.log(client.users.get(idpozwanego).tag)
+                    console.log(client.users.cache.get(idpozwanego).tag)
                     powodpozwania = m.content;
                     podalpowod = true
-                    let embedd = new Discord.RichEmbed()
+                    let embedd = new Discord.MessageEmbed()
                     .setAuthor("Magda Gessler", "https://ocdn.eu/pulscms-transforms/1/3Umk9kpTURBXy85ZTBmZjFmYmE4MGM3MzAzM2E0MDJhN2I4OTM0Y2E2Zi5qcGeTlQPNA8jMi80HxM0EX5MFzQMUzQG8kwmmYWM5ZDZiBoGhMAE/magda-gessler.jpg")
                         .setTitle("Potwierdzasz?")
-                        .addField("Zjadasz użytkownika:", client.users.get(idpozwanego).tag)
+                        .addField("Zjadasz użytkownika:", client.users.cache.get(idpozwanego).tag)
                         .addField("Zjadasz go za:", powodpozwania)
                         .setFooter("Potwierdź wpisując ✅ tak/⛔ nie.") //https://ocdn.eu/pulscms-transforms/1/3Umk9kpTURBXy85ZTBmZjFmYmE4MGM3MzAzM2E0MDJhN2I4OTM0Y2E2Zi5qcGeTlQPNA8jMi80HxM0EX5MFzQMUzQG8kwmmYWM5ZDZiBoGhMAE/magda-gessler.jpg
                     msg.channel.send(embedd)
@@ -51,9 +51,9 @@ class pozwij {
                 if(m.content.toLowerCase().includes("tak")) {
                     zatwierdzil = true
                     console.log("zatwierdzono pozew :D")
-                    let nowyembed = new Discord.RichEmbed()
+                    let nowyembed = new Discord.MessageEmbed()
                         .setTitle("Ok :white_check_mark:")
-                        .setDescription("Zjadam użytkownika " + client.users.get(idpozwanego).tag + "\n\nPowód: " + powodpozwania);
+                        .setDescription("Zjadam użytkownika " + client.users.cache.get(idpozwanego).tag + "\n\nPowód: " + powodpozwania);
                     msg.channel.send(nowyembed)
                     collector.stop()
                     client.users.get(idpozwanego).send("Użytkownik " + msg.author.tag + " zjada Cię!\n\nPowód: " + powodpozwania) // same wysyłanie dma do pozwanego, jak potrzeba to zmienić na embeda czy cokolwiek

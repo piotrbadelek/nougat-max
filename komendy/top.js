@@ -32,10 +32,10 @@ class hajstop {
         })
     })
     uzytkownicy = uzytkownicy.slice(0,10)
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
     .setColor((Math.random() * 0xFFFFFF << 0).toString(16)) 
     .setAuthor(client.user.username + "#" + client.user.discriminator, client.user.displayAvatarURL)
-    .setFooter("Ekonomia")
+    .setFooter("Ekonomia | Odświeża się co 10 minut")
     .setTimestamp()
     .setTitle("Topka najbogatszych osób");              
     uzytkownicy.forEach(function(uzyt) {        

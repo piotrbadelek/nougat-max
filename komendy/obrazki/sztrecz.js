@@ -26,7 +26,7 @@ class sztrecz {
 
 	// Wait for Canvas to load the image
 	// Draw a shape onto the main canvas
-	const attachment = new Discord.Attachment(canvas.toBuffer(), 'welcome-image.png');
+	const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome-image.png');
 
 	msg.channel.send(`Oto twój obrazek!`, attachment);
     console.log("sztrecz");

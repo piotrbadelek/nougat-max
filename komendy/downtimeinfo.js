@@ -7,7 +7,7 @@ class downtimeinfo {
     async run(client, msg, args) {
         let id = ["284980083104415746", "347736225873920021", "300346870574612491"]
         if (id.includes(msg.author.id)) {
-            let embedowanie = new Discord.RichEmbed()
+            let embedowanie = new Discord.MessageEmbed()
                 .setColor(0x198c41)
                 .setTitle(`:warning: Wiadomość od New Nougat Interactive :warning: `)
                 .setDescription(args.slice(0).join(" "));

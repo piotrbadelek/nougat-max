@@ -8,7 +8,7 @@ class biedronka {
   }
   async run (client, msg, args) {
       let biedronka = zabijsie.readTableZSDB("./biedronka.txt") // ok jestem
-      let embed = new Discord.RichEmbed() //pirat no z tym arr   thepirateerrorsguy65
+      let embed = new Discord.MessageEmbed() //pirat no z tym arr   thepirateerrorsguy65
         .setColor((Math.random() * 0xFFFFFF << 0).toString(16)) // torrentujemy od 2015TM
         .setAuthor(client.user.username + "#" + client.user.discriminator, client.user.displayAvatarURL)
         .setFooter("Biedronka") // jest tam ktoś? ja jestem XD zgadzam sie, programista zapadł w śpiączke
@@ -18,8 +18,8 @@ class biedronka {
         // nazwa|cena|produkt
         if((produkt == "") == false) {
           let nazwa = produkt.split("|")[0]
-          let cena = produkt.split("|")[1]
-          let id = produkt.split("|")[2]
+          let cena = produkt.split("|")[2]
+          let id = produkt.split("|")[1]
           embed.addField(nazwa + " (ID: " + id + ")", cena + " " + waluta)
         }        
       })

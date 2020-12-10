@@ -14,7 +14,7 @@ class reload {
             const pull = require(`./${args[0]}.js`);
             const file = new pull();
             ch.cmds.set(args[0], file);
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
             .setColor(0x198c41)
             .setAuthor(client.user.username + "#" + client.user.discriminator, client.user.displayAvatarURL)
             .setTitle("Manager komend")

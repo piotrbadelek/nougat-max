@@ -25,7 +25,7 @@ class zaplac {
             ok = false
         }
         try {
-            nazwaosoby = client.users.get(osoba).username
+            nazwaosoby = client.users.cache.get(osoba).username
             if(pieniadze.includes(osoba) == false) {
                 zabijsie.addToTableZSDB(pieniadzee, "\n" + osoba + ";0-" + nazwa)
             }
@@ -40,7 +40,7 @@ class zaplac {
                 let twoje = parseInt(pieniadze.split(msg.author.id + ";")[1].split("-")[0]);
                 let jego = parseInt(pieniadze.split(osoba + ";")[1].split("-")[0]);
                 console.log("pieniądze " + msg.author.username + ": " + twoje + "\npieniądze " + nazwaosoby + ": " + jego)
-                if((twoje - dozaplaty) < -1) {
+                if((twoje - dozaplaty) <= -1) {
                     msg.channel.send("Nie masz wystarczająco pieniędzy! (teraz masz: " + twoje + ")")
                 } else {
                     zabijsie.editTableZSDB(pieniadzee, msg.author.id + ";" + (parseInt(twoje) - dozaplaty).toString(), msg.author.id + ";" + twoje)

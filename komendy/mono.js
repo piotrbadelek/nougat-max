@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-const monodev = new Discord.Attachment('http://83.27.68.88/api/nougay.png');
+const monodev = new Discord.MessageAttachment('http://83.27.68.88/api/nougay.png');
 class mono {
     constructor() {
         this.name = "monodev",

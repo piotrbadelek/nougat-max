@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const zabijsie = require("../zabij-sie-db.js");
 const pieniazki = "./pieniadze.txt";
 //dlaczego jeszcze raz robi to pan
+// :thinking: on to pisał więc może tutaj wstawił luke
 // bo to co zrobiles to aksztanstwo XD
 // no znaczy działa, jest ok. ale ja zrobie to lepiej XD   ok ja moge zrobic zabijsie
 async function promptMessage(msg, author, time, vR) {
@@ -17,7 +18,7 @@ class rps {
     }
     async run (client, msg, args) {
         const chooseArr = ["🗻", "📰", "✂"];
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
         .setColor(0x198c41)
         .setAuthor(msg.author.username + "#" + msg.author.discriminator, msg.author.displayAvatarURL)
         .setDescription("Aby zagrać zareaguj dowolną emotką z poniższych! 😀")
@@ -28,7 +29,7 @@ class rps {
 
         const komputer = chooseArr[Math.floor(Math.random() * chooseArr.length)];
         const result = await getResult(reacted, komputer);
-        await ms.clearReactions();
+        await msg.reactions.removeAll();
 
         embed.addField(result, `${reacted} vs ${komputer}`);
         embed.setDescription(` `);
@@ -47,13 +48,13 @@ class rps {
             }
         }
         function hajs() { 
-            let cashcash = Math.floor((Math.random() * 30) + 10);
+            let cashcash = Math.floor((Math.random() * 30) + 10); // a   to losuje rendomowa liczbe
             let pieniadze = zabijsie.readTableZSDB("./pieniadze.txt")
             if (pieniadze.includes(msg.author.id)) {
                 // użytkownik ma już jakieś pieniądze
                 let current = pieniadze.split(msg.author.id + ";")[1].split("-")[0]
-                let nowailosc = parseInt(current) +  cashcash// 2 to liczba NLN dodawanych za każdym wpisem
-                zabijsie.editTableZSDB("./pieniadze.txt", msg.author.id + ";" + nowailosc + "-", msg.author.id + ";" + current + "-") // zmiana ilości
+                let nowailosc = parseInt(current) + parseInt(cashcash)// 2 to liczba NLN dodawanych za każdym wpisem
+                zabijsie.editTableZSDB("./pieniadze.txt", msg.author.id + ";" + parseInt(nowailosc) + "-", msg.author.id + ";" + current + "-") // zmiana ilości
             } else {
                 // użytkownik nie ma jeszcze nic
                 zabijsie.addToTableZSDB("./pieniadze.txt", "\n" + msg.author.id + ";15-" + msg.author.tag)
@@ -65,8 +66,8 @@ class rps {
             if (pieniadze.includes(msg.author.id)) {
                 // użytkownik ma już jakieś pieniądze
                 let current = pieniadze.split(msg.author.id + ";")[1].split("-")[0]
-                let nowailosc = parseInt(current) -  cashcashminus// 2 to liczba NLN dodawanych za każdym wpisem
-                zabijsie.editTableZSDB("./pieniadze.txt", msg.author.id + ";" + nowailosc + "-", msg.author.id + ";" + current + "-") // zmiana ilości
+                let nowailosc = parseInt(current) - parseInt(cashcashminus)// 2 to liczba NLN dodawanych za każdym wpisem
+                zabijsie.editTableZSDB("./pieniadze.txt", msg.author.id + ";" + parseInt(nowailosc) + "-", msg.author.id + ";" + current + "-") // zmiana ilości
             } else {
                 // użytkownik nie ma jeszcze nic
                 zabijsie.addToTableZSDB("./pieniadze.txt", "\n" + msg.author.id + ";15-" + msg.author.tag)
