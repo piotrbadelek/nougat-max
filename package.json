@@ -6,7 +6,7 @@
   "dependencies": {
     "ascii-table": "^0.0.9",
     "discord.js": "^11.6.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "ffmpeg-static": "^4.1.1",
     "fs": "^0.0.1-security",
     "node-opus": "^0.3.3",
